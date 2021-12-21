@@ -10,6 +10,7 @@ import com.example.evonet.R;
 public class MainActivity extends BaseActivities implements ActivityInterface{
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
