@@ -1,6 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical"
+    tools:context="com.example.evonet.activities.MainActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainhead"
+        >
+        <ImageView
+            android:id="@+id/main_healine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_view_headline_24"
+            />
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="24dp"
+            android:text="@string/main_headline"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="100dp"
+            android:layout_gravity="center_horizontal"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_24"
+            android:layout_marginLeft="350dp"
+            android:layout_marginRight="0dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/layout1"
+        >
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/lesson1"
+            android:background="@color/blueviolet"
+            android:text="@string/android"
+            android:textColor="@color/white"
+            android:gravity="bottom"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson1_title"
+            android:text="@string/name1"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@id/lesson1"
+            android:layout_toRightOf="@+id/lesson1"
+            />
+
+
+        <TextView
+            android:id="@+id/learn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lesson1"
+            android:layout_toRightOf="@id/lesson1"
+            android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:gravity="center"
+            android:text="@string/learn"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111人"
+            android:layout_toRightOf="@+id/learn1"
+            android:layout_alignBottom="@id/learn1"
+            android:textSize="10dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/line"
+            android:layout_below="@id/lesson1"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/layout2"
+        >
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/lesson2"
+            android:background="@color/tomato"
+            android:text="@string/os"
+            android:textColor="@color/white"
+            android:gravity="bottom"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson2_title"
+            android:text="@string/name2"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@id/lesson2"
+            android:layout_toRightOf="@+id/lesson2"
+            />
+
+
+        <TextView
+            android:id="@+id/learn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lesson2"
+            android:layout_toRightOf="@id/lesson2"
+            android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:gravity="center"
+            android:text="@string/learn"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="89人"
+            android:layout_toRightOf="@+id/learn2"
+            android:layout_alignBottom="@id/learn2"
+            android:textSize="10dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/line"
+            android:layout_below="@id/lesson2"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/layout3"
+        >
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/lesson3"
+            android:background="@color/violet"
+            android:text="@string/politics"
+            android:textColor="@color/white"
+            android:gravity="bottom"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson3_title"
+            android:text="@string/name3"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="@id/lesson3"
+            android:layout_toRightOf="@+id/lesson3"
+            />
+
+
+        <TextView
+            android:id="@+id/learn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lesson3"
+            android:layout_toRightOf="@id/lesson3"
+            android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:gravity="center"
+            android:text="@string/learn"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123人"
+            android:layout_toRightOf="@+id/learn3"
+            android:layout_alignBottom="@id/learn3"
+            android:textSize="10dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/line"
+            android:layout_below="@id/lesson3"
+            />
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

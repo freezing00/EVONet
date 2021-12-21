@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EVONet</string>
+    <string name="android">JHMXUS</string>
+    <string name="name1">Android应用开发2112602</string>
+    <string name="os">VKWRKC</string>
+    <string name="name2">2012秋季操作系统2110534</string>
+    <string name="politics">Q28GUH</string>
+    <string name="name3">形势与政策2111593</string>
+    <string name="learn">学</string>
+    <string name="main_headline">课堂签到</string>
 </resources>
