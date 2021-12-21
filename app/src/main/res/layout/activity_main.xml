@@ -11,9 +11,12 @@
     android:orientation="vertical"
     tools:context="com.example.evonet.activities.MainActivity">
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/mainhead"
+        android:onClick="onClick"
+        android:clickable="true"
+        tools:ignore="OnClick"
         >
         <ImageView
             android:id="@+id/main_healine"
@@ -30,6 +33,7 @@
             android:layout_gravity="center_horizontal"
             />
         <ImageView
+            android:id="@+id/add_lesson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_add_24"
@@ -37,15 +41,15 @@
             android:layout_marginRight="0dp"
 
             />
-
-
     </RelativeLayout>
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:id="@+id/layout1"
+        android:onClick="onClick"
+        android:clickable="true"
+        tools:ignore="OnClick"
         >
         <TextView
             android:layout_width="80dp"
@@ -56,15 +60,15 @@
             android:textColor="@color/white"
             android:gravity="bottom"
             />
-
         <TextView
-            android:id="@+id/lesson1_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/lesson1"
+            android:id="@+id/lesson1_title"
             android:text="@string/name1"
+            android:textSize="15dp"
             android:textColor="@color/black"
-            android:textSize="15dp" />
+            android:layout_toRightOf="@+id/lesson1"
+            />
 
 
         <TextView
@@ -97,6 +101,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:id="@+id/layout2"
+        android:onClick="onClick"
+        android:clickable="true"
+        tools:ignore="OnClick"
         >
         <TextView
             android:layout_width="80dp"

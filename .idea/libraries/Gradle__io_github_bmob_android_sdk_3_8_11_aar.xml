@@ -5,6 +5,10 @@
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/95591114b19508692870723be0b6bb93/android-sdk-3.8.11/res" />
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/95591114b19508692870723be0b6bb93/android-sdk-3.8.11/AndroidManifest.xml" />
       <root url="jar://F:/.gradle/caches/transforms-2/files-2.1/95591114b19508692870723be0b6bb93/android-sdk-3.8.11/jars/libs/BmobSDK_3.8.11_20211009.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/95591114b19508692870723be0b6bb93/android-sdk-3.8.11/jars/libs/BmobSDK_3.8.11_20211009.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/95591114b19508692870723be0b6bb93/android-sdk-3.8.11/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/95591114b19508692870723be0b6bb93/android-sdk-3.8.11/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/95591114b19508692870723be0b6bb93/android-sdk-3.8.11/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
