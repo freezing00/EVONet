@@ -91,7 +91,6 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
             return;
         }
 
-        //TODO 登录
         loginByAccount(userName,userPassword);
         isClickLogin = true;
         ck_remember.setClickable(false);
