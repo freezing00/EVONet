@@ -14,7 +14,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.evonet.R;
+import com.example.evonet.javaBeans.User;
 import com.example.evonet.utiles.FileManager;
+
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.LogInListener;
 
 
 public class StartActivity extends BaseActivities implements ActivityInterface{
@@ -41,7 +46,12 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
             et_startPassword.setText(FileManager.getPassword(this));
         }
 
-        //TODO Bmob
+        //TODO 自动登录
+//        if (BmobUser.isLogin()){
+//            MainActivity.actionStart(StartActivity.this);
+//            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
+//            finish();
+//        }
 
     }
 
@@ -50,7 +60,7 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         super.onClick(view);
         switch (view.getId()){
             case R.id.register:
-                Intent intentRegister = new Intent();// TODO 跳转到注册界面,需要建立注册界面
+                Intent intentRegister = new Intent(StartActivity.this,RegisterActivity.class);
                 startActivity(intentRegister);
                 break;
             case R.id.log_in_button:
@@ -81,9 +91,41 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
             return;
         }
 
-        //TODO 登录
+        loginByAccount(userName,userPassword);
         isClickLogin = true;
         ck_remember.setClickable(false);
+    }
+
+    private void loginByAccount(String userName, String userPassword) {
+        BmobUser.loginByAccount(userName, userPassword, new LogInListener<User>() {
+            @Override
+            public void done(User user, BmobException e) {
+                if (e==null){
+                    Toast.makeText(StartActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
+                    try {
+                        user = BmobUser.getCurrentUser(User.class);
+                        FileManager.savePassword(user.getObjectId(),StartActivity.this);
+                        if(ck_remember.isSelected()){
+                            FileManager.saveAccount(userName,StartActivity.this);
+                            FileManager.savePassword(userPassword,StartActivity.this);
+                        }
+                        else{
+                            FileManager.saveAccount("",StartActivity.this);
+                            FileManager.savePassword("",StartActivity.this);
+                        }
+                        finish();
+                        //MainActivity.actionStart(StartActivity.this);//登录
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                }
+                else{
+                    Toast.makeText(StartActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+                    isClickLogin = false;
+                    ck_remember.setClickable(true);
+                }
+            }
+        });
     }
 
     @Override
@@ -97,5 +139,6 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         tv_register.setOnClickListener(StartActivity.this);
         bt_login.setOnClickListener(StartActivity.this);
         ck_remember.setOnClickListener(this);
+
     }
 }

@@ -1,10 +1,16 @@
-plugins {
-    id 'com.android.application'
-}
+apply plugin: 'com.android.application'
+// 添加插件
+apply plugin: 'com.mob.sdk'  //添加这一行即可
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
+
+//    MobSDK {  TODO 等待审核通过
+//        appKey "34ff68b377ef3"
+//        appSecret "ad737f7f4acaa34d4d54ace455bc560e"
+//        SMSSDK {}
+//    }
 
     defaultConfig {
         applicationId "com.example.evonet"
@@ -26,7 +32,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+
 }
+
+
 
 dependencies {
     implementation 'io.github.bmob:android-sdk:3.8.11'

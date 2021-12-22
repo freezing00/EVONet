@@ -26,11 +26,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp">
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -38,21 +33,22 @@
         android:layout_marginTop="48dp">
 
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginBottom="4dp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/ic_baseline_person_24"/>
+
         <EditText
             android:id="@+id/user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:inputType="text"
-            android:hint="学号"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
-            android:maxLines="1"/>
+            android:hint="学号"
+            android:inputType="text"
+            android:maxLines="1" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -164,7 +160,7 @@
 
         <EditText
             android:id="@+id/et_identify"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:layout_alignParentBottom="true"
