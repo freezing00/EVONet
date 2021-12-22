@@ -16,10 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EVONet">
-        <activity android:name=".activities.AddLesson"></activity>
+        <activity android:name=".RecordActivity"></activity>
+        <activity android:name=".activities.SignIn" />
+        <activity android:name=".activities.AddLesson" />
         <activity
             android:name=".activities.StartActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">
@@ -33,7 +35,7 @@
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
-            android:authorities="com.example.evonet.BmobContentProvider"></provider>
+            android:authorities="com.example.evonet.BmobContentProvider" />
     </application>
 
 </manifest>
