@@ -40,6 +40,9 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
     private RelativeLayout layout1, layout2, layout3;//对应3个课程布局的点击事件
     private ImageView functionBar, add;//对应侧拉工具栏，加入课程
 
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);

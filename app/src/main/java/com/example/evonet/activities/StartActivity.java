@@ -2,6 +2,7 @@ package com.example.evonet.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.view.View;
 import android.view.Window;
 import android.view.accessibility.AccessibilityManager;
@@ -17,12 +18,15 @@ import com.example.evonet.R;
 import com.example.evonet.javaBeans.User;
 import com.example.evonet.utiles.FileManager;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 
 
 public class StartActivity extends BaseActivities implements ActivityInterface{
+
+    private static final String APPID = "8acc38da08a5413e0a41e6ba6883e40f";
     //定义组件对象
     private EditText et_startUser,et_startPassword;
     private TextView tv_register;
@@ -36,7 +40,7 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
-
+        Bmob.initialize(this,APPID);
         bindView();
 
         if (!FileManager.getAccount(this).equals("")){
@@ -46,12 +50,14 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
             et_startPassword.setText(FileManager.getPassword(this));
         }
 
+
         //TODO 自动登录
-//        if (BmobUser.isLogin()){
-//            MainActivity.actionStart(StartActivity.this);
-//            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
-//            finish();
-//        }
+        if (BmobUser.isLogin()){
+            Intent intent = new Intent(StartActivity.this,MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
     }
 
@@ -114,7 +120,8 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
                             FileManager.savePassword("",StartActivity.this);
                         }
                         finish();
-                        //MainActivity.actionStart(StartActivity.this);//登录
+                        Intent intent = new Intent(StartActivity.this,MainActivity.class);
+                        startActivity(intent);
                     } catch (Exception exception) {
                         exception.printStackTrace();
                     }
