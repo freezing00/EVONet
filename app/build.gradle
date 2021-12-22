@@ -33,6 +33,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    useLibrary 'org.apache.http.legacy'//配置bmob
 
 }
 
