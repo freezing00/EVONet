@@ -10,7 +10,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Bmob.resetDomain("https://open3.bmob.cn/8");
+        //Bmob.resetDomain("https://open3.bmob.cn/8");
         Bmob.initialize(MyApplication.this,APPID);
     }
 }

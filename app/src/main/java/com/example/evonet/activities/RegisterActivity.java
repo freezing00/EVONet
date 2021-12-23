@@ -35,8 +35,6 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bmob.resetDomain("https://open3.bmob.cn/8");
-        Bmob.initialize(RegisterActivity.this,"8acc38da08a5413e0a41e6ba6883e40f");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_register);
         bindView();
@@ -61,14 +59,14 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
                 }
 
                 //TODO bmob
-                BmobUser user = new BmobUser();
+                User user = new User();
                 user.setUsername(user_num);
                 user.setPassword(user_password);
                 user.setEmail(user_email);
                 user.setMobilePhoneNumber(user_phoneNumber);
-                user.signUp(new SaveListener<BmobUser>() {
+                user.signUp(new SaveListener<User>() {
                     @Override
-                    public void done(BmobUser bmobUser, BmobException e) {
+                    public void done(User user, BmobException e) {
                         if(e==null){
                             Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                         }else{

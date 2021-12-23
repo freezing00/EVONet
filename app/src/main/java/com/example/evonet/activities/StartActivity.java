@@ -29,6 +29,7 @@ import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
+import cn.bmob.v3.listener.SaveListener;
 
 
 public class StartActivity extends BaseActivities implements ActivityInterface{
@@ -58,12 +59,12 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
 
 
         //TODO 自动登录
-        if (BmobUser.isLogin()){
-            Intent intent = new Intent(StartActivity.this,MainActivity.class);
-            startActivity(intent);
-            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
-            finish();
-        }
+//        if (BmobUser.isLogin()){
+//            Intent intent = new Intent(StartActivity.this,MainActivity.class);
+//            startActivity(intent);
+//            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
+//            finish();
+//        }
 
     }
 
@@ -113,7 +114,6 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
             @Override
             public void done(User user, BmobException e) {
                 if (e==null){
-                    System.out.println("in");
                     Toast.makeText(StartActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
                     try {
                         user = BmobUser.getCurrentUser(User.class);
@@ -140,6 +140,7 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
                 }
             }
         });
+
     }
 
     @Override
