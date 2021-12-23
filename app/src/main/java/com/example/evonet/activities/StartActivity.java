@@ -50,21 +50,21 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         setContentView(R.layout.activity_start);
         bindView();
 
-//        if (!FileManager.getAccount(this).equals("")){
-//            ck_remember.setChecked(true);
-//            ck_remember.setSelected(true);
-//            et_startUser.setText(FileManager.getAccount(this));
-//            et_startPassword.setText(FileManager.getPassword(this));
-//        }
+        if (!FileManager.getAccount(this).equals("")){
+            ck_remember.setChecked(true);
+            ck_remember.setSelected(true);
+            et_startUser.setText(FileManager.getAccount(this));
+            et_startPassword.setText(FileManager.getPassword(this));
+        }
 
 
         //TODO 自动登录
-//        if (BmobUser.isLogin()){
-//            Intent intent = new Intent(StartActivity.this,MainActivity.class);
-//            startActivity(intent);
-//            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
-//            finish();
-//        }
+        if (BmobUser.isLogin()){
+            Intent intent = new Intent(StartActivity.this,MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
     }
 
