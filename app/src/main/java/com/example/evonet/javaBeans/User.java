@@ -10,46 +10,43 @@ public class User extends BmobUser {
     * 数据成员
     * */
 
-    private String ID;//学号
-    private String password;//密码
-    private String phoneNumber;//手机号
-    private String email;//邮箱
+    private String date;//日期
+    private String time;//时间
+    private String type;//考勤类型
+    private String status;//考勤状态
     private BmobFile imageFile;//头像
     private Bitmap icon;
 
-    public String getID() {
-        return ID;
+    public String getDate() {
+        return date;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getPassword() {
-        return password;
+    public String getTime() {
+        return time;
     }
 
-    @Override
-    public void setPassword(String password) {
-        this.password = password;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getType() {
+        return type;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    @Override
-    public String getEmail() {
-        return email;
+    public String getStatus() {
+        return status;
     }
 
-    @Override
-    public void setEmail(String email) {
-        this.email = email;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public BmobFile getImageFile() {

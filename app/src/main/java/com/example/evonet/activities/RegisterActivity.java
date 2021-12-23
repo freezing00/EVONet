@@ -9,9 +9,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.evonet.MyApplication;
 import com.example.evonet.R;
+import com.example.evonet.javaBeans.User;
 
 import java.util.Objects;
+
+import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
 
 public class RegisterActivity extends BaseActivities implements ActivityInterface{
 
@@ -28,9 +35,10 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bmob.resetDomain("https://open3.bmob.cn/8");
+        Bmob.initialize(RegisterActivity.this,"8acc38da08a5413e0a41e6ba6883e40f");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_register);
-
         bindView();
 
         iniToolbar();
@@ -53,7 +61,22 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
                 }
 
                 //TODO bmob
-
+                BmobUser user = new BmobUser();
+                user.setUsername(user_num);
+                user.setPassword(user_password);
+                user.setEmail(user_email);
+                user.setMobilePhoneNumber(user_phoneNumber);
+                user.signUp(new SaveListener<BmobUser>() {
+                    @Override
+                    public void done(BmobUser bmobUser, BmobException e) {
+                        if(e==null){
+                            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                        }else{
+                            //loge(e);
+                            Toast.makeText(RegisterActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
                 finish();
                 break;
             case R.id.bt_regist_cancel:

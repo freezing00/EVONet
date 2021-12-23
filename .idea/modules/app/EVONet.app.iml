@@ -57,6 +57,10 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test:monitor:1.3.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.test.espresso:espresso-idling-resource:3.3.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.http.legacy" level="project" />
+    <orderEntry type="library" name="Gradle: ./app/libs/BaiduLBS_Android.jar" level="project" />
+    <orderEntry type="library" name="Gradle: ./app/libs/protobuf_gens-map.jar" level="project" />
+    <orderEntry type="library" name="Gradle: ./app/libs/javapoet-1.9.0.jar" level="project" />
+    <orderEntry type="library" name="Gradle: ./app/libs/protobuf-java-2.3.0-micro.jar" level="project" />
     <orderEntry type="library" name="Gradle: com.mob:MobToolsMC:2021.1012.1522" level="project" />
     <orderEntry type="library" name="Gradle: com.mob:MobCommonsMC:2021.1012.1522" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxjava:2.2.8" level="project" />

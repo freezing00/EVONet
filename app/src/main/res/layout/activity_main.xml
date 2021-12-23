@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.drawerlayout.widget.DrawerLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingRight="16dp"
     android:paddingLeft="16dp"
     android:paddingBottom="16dp"
     android:paddingTop="16dp"
     android:orientation="vertical"
-    tools:context="com.example.evonet.activities.MainActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mainhead"
         android:onClick="onClick"
@@ -20,32 +24,32 @@
         >
         <ImageView
             android:id="@+id/main_healine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/ic_baseline_view_headline_24"
             />
+
         <TextView
-            android:layout_width="120dp"
-            android:layout_height="24dp"
-            android:text="@string/main_headline"
-            android:layout_marginLeft="150dp"
-            android:layout_marginRight="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
-            />
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/main_headline" />
+
         <ImageView
             android:id="@+id/add_lesson"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/ic_baseline_add_24"
-            android:layout_marginLeft="350dp"
-            android:layout_marginRight="0dp"
-
+            android:layout_marginStart="360dp"
+            android:layout_marginEnd="0dp"
             />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="50dp"
         android:id="@+id/layout1"
         android:onClick="onClick"
         android:clickable="true"
@@ -57,6 +61,7 @@
             android:id="@+id/lesson1"
             android:background="@color/blueviolet"
             android:text="@string/android"
+            android:layout_marginStart="20dp"
             android:textColor="@color/white"
             android:gravity="bottom"
             />
@@ -69,7 +74,6 @@
             android:textColor="@color/black"
             android:layout_toRightOf="@+id/lesson1"
             />
-
 
         <TextView
             android:id="@+id/learn1"
@@ -97,9 +101,9 @@
             />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/layout2"
         android:onClick="onClick"
         android:clickable="true"
@@ -111,6 +115,7 @@
             android:id="@+id/lesson2"
             android:background="@color/tomato"
             android:text="@string/os"
+            android:layout_marginStart="20dp"
             android:textColor="@color/white"
             android:gravity="bottom"
             />
@@ -151,15 +156,16 @@
             />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+       android:layout_marginTop="10dp"
         android:id="@+id/layout3"
         >
         <TextView
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:id="@+id/lesson3"
+            android:layout_marginStart="20dp"
             android:background="@color/violet"
             android:text="@string/politics"
             android:textColor="@color/white"
@@ -200,10 +206,17 @@
             android:background="@mipmap/line"
             android:layout_below="@id/lesson3"
             />
-    </RelativeLayout>
 
+        </RelativeLayout>
+    </LinearLayout>>
 
+    <Fragment
+        android:id="@+id/fg_information"
+        android:layout_width="match_parent"
+        android:name="com.example.evonet.fragments.InformationFragment"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        tools:layout="@layout/activity_information"
+        tools:ignore="Instantiatable" />
 
-
-
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,10 +1,13 @@
 package com.example.evonet.activities;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.accessibility.AccessibilityManager;
@@ -16,22 +19,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.evonet.R;
-import com.example.evonet.activities.ActivityInterface;
-import com.example.evonet.activities.BaseActivities;
-import com.example.evonet.utiles.FileManager;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
+
+import com.example.evonet.fragments.InformationFragment;
+
 import android.widget.RelativeLayout;
 
-import com.example.evonet.R;
-import com.example.evonet.utiles.FileManager;
+
+
+import org.jetbrains.annotations.NotNull;
 
 //创建继承自activity的activity
 //重写需要的回调方法
@@ -40,13 +40,19 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
     private RelativeLayout layout1, layout2, layout3;//对应3个课程布局的点击事件
     private ImageView functionBar, add;//对应侧拉工具栏，加入课程
 
+    //侧划栏
+    private DrawerLayout drawer_layout;
+    private Fragment fg_information;
+    private FragmentManager fragmentManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);//TODO 存在BUG
+        fragmentManager = getSupportFragmentManager();
+        fg_information = fragmentManager.findFragmentById(R.id.fg_information);
         bindView();
     }
 
@@ -72,6 +78,7 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
     }
 
     //绑定组件对应的ID
+    @SuppressLint("WrongConstant")
     @Override
     public void bindView() {
         layout1 = findViewById(R.id.layout1);
@@ -79,12 +86,40 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
         layout3 = findViewById(R.id.layout3);
         add = findViewById(R.id.add_lesson);
         functionBar = findViewById(R.id.main_healine);
+        //侧划栏
+        drawer_layout = findViewById(R.id.drawer_layout);
+        drawer_layout.setDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull @NotNull View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull @NotNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull @NotNull View drawerView) {
+                drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.END);
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
+
+
+
 
         layout1.setOnClickListener(MainActivity.this);
         layout2.setOnClickListener(MainActivity.this);
         layout3.setOnClickListener(MainActivity.this);
         functionBar.setOnClickListener(MainActivity.this);
         add.setOnClickListener(MainActivity.this);
+
+
 
     }
 }

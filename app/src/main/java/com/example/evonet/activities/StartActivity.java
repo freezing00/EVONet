@@ -1,7 +1,11 @@
 package com.example.evonet.activities;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.provider.SyncStateContract;
 import android.view.View;
 import android.view.Window;
@@ -12,11 +16,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.evonet.R;
 import com.example.evonet.javaBeans.User;
 import com.example.evonet.utiles.FileManager;
+
+import org.jetbrains.annotations.NotNull;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
@@ -26,7 +33,7 @@ import cn.bmob.v3.listener.LogInListener;
 
 public class StartActivity extends BaseActivities implements ActivityInterface{
 
-    private static final String APPID = "8acc38da08a5413e0a41e6ba6883e40f";
+
     //定义组件对象
     private EditText et_startUser,et_startPassword;
     private TextView tv_register;
@@ -40,15 +47,14 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
-        Bmob.initialize(this,APPID);
         bindView();
 
-        if (!FileManager.getAccount(this).equals("")){
-            ck_remember.setChecked(true);
-            ck_remember.setSelected(true);
-            et_startUser.setText(FileManager.getAccount(this));
-            et_startPassword.setText(FileManager.getPassword(this));
-        }
+//        if (!FileManager.getAccount(this).equals("")){
+//            ck_remember.setChecked(true);
+//            ck_remember.setSelected(true);
+//            et_startUser.setText(FileManager.getAccount(this));
+//            et_startPassword.setText(FileManager.getPassword(this));
+//        }
 
 
         //TODO 自动登录
@@ -107,6 +113,7 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
             @Override
             public void done(User user, BmobException e) {
                 if (e==null){
+                    System.out.println("in");
                     Toast.makeText(StartActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
                     try {
                         user = BmobUser.getCurrentUser(User.class);
@@ -147,5 +154,24 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         bt_login.setOnClickListener(StartActivity.this);
         ck_remember.setOnClickListener(this);
 
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && requestCode == 200) {
+            for (int i = 0; i < permissions.length; i++) {
+                if (grantResults[i] != PackageManager.PERMISSION_GRANTED) { // 用户点的拒绝，仍未拥有权限
+                    Toast.makeText(this, "请在设置中打开摄像头或存储权限", Toast.LENGTH_SHORT).show();
+                    // 可以选择添加如下代码在系统设置中打开该应用的设置页面
+                    Intent intent = new Intent();
+                    intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    Uri uri = Uri.fromParts("package", getPackageName(), null);
+                    intent.setData(uri);
+                    startActivity(intent);
+                    return;
+                }
+            }
+        }
     }
 }

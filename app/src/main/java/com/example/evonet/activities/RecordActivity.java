@@ -1,16 +1,12 @@
-package com.example.evonet;
+package com.example.evonet.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
+
 import com.example.evonet.R;
-import com.example.evonet.activities.MainActivity;
-import com.example.evonet.activities.SignIn;
 
 
 public class RecordActivity extends AppCompatActivity {

@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.evonet.R;
-import com.example.evonet.RecordActivity;
 
 //对应activity_add_lesson.xml中签到打卡和考勤记录两个按钮的点击事件
 public class SignIn extends AppCompatActivity {
