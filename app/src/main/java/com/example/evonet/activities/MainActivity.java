@@ -2,33 +2,27 @@ package com.example.evonet.activities;
 
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
-import android.view.accessibility.AccessibilityManager;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.evonet.R;
 
-import com.example.evonet.fragments.InformationFragment;
-
 import android.widget.RelativeLayout;
-
+import android.widget.TextView;
 
 
 import org.jetbrains.annotations.NotNull;
@@ -42,17 +36,30 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
 
     //侧划栏
     private DrawerLayout drawer_layout;
-    private Fragment fg_information;
-    private FragmentManager fragmentManager;
+    private ImageView userImage,userIdCode;
+    private Bitmap bitmap;
+    private TextView userId,userName;
+    private RelativeLayout accountManager,message,major,courseTable,setting,for_us;
+
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            if((Integer)msg.obj==0){
+                userImage.setImageBitmap(bitmap);
+            }
+//            if (msg.what == 0x0){
+//                ((Personal)mPerson).getmTips().setText("");
+//            }
+        }
+    };
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);//TODO 存在BUG
-        fragmentManager = getSupportFragmentManager();
-        fg_information = fragmentManager.findFragmentById(R.id.fg_information);
+        setContentView(R.layout.activity_main);
         bindView();
     }
 
@@ -86,32 +93,6 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
         layout3 = findViewById(R.id.layout3);
         add = findViewById(R.id.add_lesson);
         functionBar = findViewById(R.id.main_healine);
-        //侧划栏
-        drawer_layout = findViewById(R.id.drawer_layout);
-        drawer_layout.setDrawerListener(new DrawerLayout.DrawerListener() {
-            @Override
-            public void onDrawerSlide(@NonNull @NotNull View drawerView, float slideOffset) {
-
-            }
-
-            @Override
-            public void onDrawerOpened(@NonNull @NotNull View drawerView) {
-
-            }
-
-            @Override
-            public void onDrawerClosed(@NonNull @NotNull View drawerView) {
-                drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED, Gravity.END);
-            }
-
-            @Override
-            public void onDrawerStateChanged(int newState) {
-
-            }
-        });
-
-
-
 
         layout1.setOnClickListener(MainActivity.this);
         layout2.setOnClickListener(MainActivity.this);
@@ -119,7 +100,34 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
         functionBar.setOnClickListener(MainActivity.this);
         add.setOnClickListener(MainActivity.this);
 
+    }
 
+
+
+    /*
+    *侧滑栏用户个人信息设置
+    * */
+    private void bindSideView(){
+        userImage = findViewById(R.id.userImage);
+        userName =findViewById(R.id.info_name);
+        userId = findViewById(R.id.info_id);
+        userIdCode = findViewById(R.id.id_code);
+        accountManager = findViewById(R.id.layout_account_manager);
+        message =findViewById(R.id.layout_message);
+        major = findViewById(R.id.layout_major);
+        courseTable = findViewById(R.id.layout_course_table);
+        for_us = findViewById(R.id.layout_for_us);
+        setting = findViewById(R.id.layout_setting);
+
+        userIdCode.setOnClickListener(this);
+        accountManager.setOnClickListener(this);
+        message.setOnClickListener(this);
+        major.setOnClickListener(this);
+        courseTable.setOnClickListener(this);
+        for_us.setOnClickListener(this);
+        setting.setOnClickListener(this);
+
+        //drawer_layout.closeDrawer(GravityCompat.START);
 
     }
 }

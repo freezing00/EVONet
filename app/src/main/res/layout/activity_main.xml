@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingRight="16dp"
-    android:paddingLeft="16dp"
-    android:paddingBottom="16dp"
-    android:paddingTop="16dp"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -35,7 +32,9 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
-            android:text="@string/main_headline" />
+            android:text="@string/main_headline"
+            android:gravity="center_horizontal"
+            />
 
         <ImageView
             android:id="@+id/add_lesson"
@@ -208,15 +207,14 @@
             />
 
         </RelativeLayout>
-    </LinearLayout>>
+    </LinearLayout>
 
-    <Fragment
-        android:id="@+id/fg_information"
+    <include
         android:layout_width="match_parent"
-        android:name="com.example.evonet.fragments.InformationFragment"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        tools:layout="@layout/activity_information"
-        tools:ignore="Instantiatable" />
+        android:id="@+id/information_view"
+        android:layout_gravity = "start"
+        layout="@layout/menu_information"
+       />
 
 </androidx.drawerlayout.widget.DrawerLayout>
