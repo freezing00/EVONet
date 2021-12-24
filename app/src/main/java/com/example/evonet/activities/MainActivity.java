@@ -104,32 +104,32 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
 
 
 
-    /*
-    *侧滑栏用户个人信息设置
-    * */
-    private void bindSideView(){
-        userImage = findViewById(R.id.userImage);
-        userName =findViewById(R.id.info_name);
-        userId = findViewById(R.id.info_id);
-        userIdCode = findViewById(R.id.id_code);
-        accountManager = findViewById(R.id.layout_account_manager);
-        message =findViewById(R.id.layout_message);
-        major = findViewById(R.id.layout_major);
-        courseTable = findViewById(R.id.layout_course_table);
-        for_us = findViewById(R.id.layout_for_us);
-        setting = findViewById(R.id.layout_setting);
-
-        userIdCode.setOnClickListener(this);
-        accountManager.setOnClickListener(this);
-        message.setOnClickListener(this);
-        major.setOnClickListener(this);
-        courseTable.setOnClickListener(this);
-        for_us.setOnClickListener(this);
-        setting.setOnClickListener(this);
-
-
-
-        //drawer_layout.closeDrawer(GravityCompat.START);
-
-    }
+//    /*
+//    *侧滑栏用户个人信息设置
+//    * */
+//    private void bindSideView(){
+//        userImage = findViewById(R.id.userImage);
+//        userName =findViewById(R.id.info_name);
+//        userId = findViewById(R.id.info_id);
+//        userIdCode = findViewById(R.id.id_code);
+//        accountManager = findViewById(R.id.layout_account_manager);
+//        message =findViewById(R.id.layout_message);
+//        major = findViewById(R.id.layout_major);
+//        courseTable = findViewById(R.id.layout_course_table);
+//        for_us = findViewById(R.id.layout_for_us);
+//        setting = findViewById(R.id.layout_setting);
+//
+//        userIdCode.setOnClickListener(this);
+//        accountManager.setOnClickListener(this);
+//        message.setOnClickListener(this);
+//        major.setOnClickListener(this);
+//        courseTable.setOnClickListener(this);
+//        for_us.setOnClickListener(this);
+//        setting.setOnClickListener(this);
+//
+//
+//
+//        //drawer_layout.closeDrawer(GravityCompat.START);
+//
+//    }
 }

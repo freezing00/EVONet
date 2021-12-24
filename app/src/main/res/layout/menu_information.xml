@@ -64,7 +64,7 @@
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="25dp"
-            android:src="@drawable/account_manage"
+            android:src="@drawable/account_manager"
             />
         <TextView
             android:layout_width="match_parent"
