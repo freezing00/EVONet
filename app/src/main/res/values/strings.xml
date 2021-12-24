@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EVONet</string>
+    <string name="app_name">乐签</string>
     <string name="android">JHMXUS</string>
     <string name="name1">Android应用开发2112602</string>
     <string name="os">VKWRKC</string>
@@ -8,4 +8,11 @@
     <string name="name3">形势与政策2111593</string>
     <string name="learn">学</string>
     <string name="main_headline">课堂签到</string>
+
+    <!--底部分类-->
+    <string name="fragment_signin">签到</string>
+    <string name="fragment_call">点名</string>
+
+
+
 </resources>

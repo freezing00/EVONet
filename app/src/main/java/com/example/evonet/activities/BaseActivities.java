@@ -1,18 +1,27 @@
 package com.example.evonet.activities;
 
-import android.app.AppComponentFactory;
+
+import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+
 import android.view.View;
 import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.ActivityInfo;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
 public class BaseActivities extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(@Nullable  Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
     }
 
     @Override

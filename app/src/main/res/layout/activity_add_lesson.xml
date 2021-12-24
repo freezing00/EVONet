@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.AddLesson"
-    android:id="@+id/qiandao"
+    android:id="@+id/qiandao_frag"
     android:orientation="vertical"
     >
+
 
 
 </LinearLayout>

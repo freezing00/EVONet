@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signin_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.01"
+                android:background="@color/purple_700"
+                materialdesign:layout_scrollFlags="scroll|enterAlways|snap">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的课程"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/layout1"
+        android:onClick="onClick"
+        android:clickable="true"
+        tools:ignore="OnClick"
+        >
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/lesson1"
+            android:background="@color/blueviolet"
+            android:text="@string/android"
+            android:textColor="@color/white"
+            android:gravity="bottom"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson1_title"
+            android:text="@string/name1"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/lesson1"
+            />
+
+
+        <TextView
+            android:id="@+id/learn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lesson1"
+            android:layout_toRightOf="@id/lesson1"
+            android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:gravity="center"
+            android:text="@string/learn"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111人"
+            android:layout_toRightOf="@+id/learn1"
+            android:layout_alignBottom="@id/learn1"
+            android:textSize="10dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/line"
+            android:layout_below="@id/lesson1"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/layout2"
+        android:onClick="onClick"
+        android:clickable="true"
+        tools:ignore="OnClick"
+        >
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/lesson2"
+            android:background="@color/tomato"
+            android:text="@string/os"
+            android:textColor="@color/white"
+            android:gravity="bottom"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson2_title"
+            android:text="@string/name2"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/lesson2"
+            />
+
+
+        <TextView
+            android:id="@+id/learn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lesson2"
+            android:layout_toRightOf="@id/lesson2"
+            android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:gravity="center"
+            android:text="@string/learn"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="89人"
+            android:layout_toRightOf="@+id/learn2"
+            android:layout_alignBottom="@id/learn2"
+            android:textSize="10dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/line"
+            android:layout_below="@id/lesson2"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/layout3"
+        >
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/lesson3"
+            android:background="@color/violet"
+            android:text="@string/politics"
+            android:textColor="@color/white"
+            android:gravity="bottom"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson3_title"
+            android:text="@string/name3"
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/lesson3"
+            />
+
+
+        <TextView
+            android:id="@+id/learn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lesson3"
+            android:layout_toRightOf="@id/lesson3"
+            android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:gravity="center"
+            android:text="@string/learn"
+            android:textSize="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123人"
+            android:layout_toRightOf="@+id/learn3"
+            android:layout_alignBottom="@id/learn3"
+            android:textSize="10dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/line"
+            android:layout_below="@id/lesson3"
+            />
+    </RelativeLayout>
+
+</LinearLayout>
+</FrameLayout>

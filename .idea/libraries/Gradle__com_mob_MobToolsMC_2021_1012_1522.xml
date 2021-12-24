@@ -2,6 +2,7 @@
   <library name="Gradle: com.mob:MobToolsMC:2021.1012.1522">
     <CLASSES>
       <root url="jar://F:/.gradle/caches/modules-2/files-2.1/com.mob/MobToolsMC/2021.1012.1522/dc491ba3e1ec6cde7b4b4081445cd36ae82b6e29/MobToolsMC-2021.1012.1522.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mob/MobToolsMC/2021.1012.1522/dc491ba3e1ec6cde7b4b4081445cd36ae82b6e29/MobToolsMC-2021.1012.1522.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
