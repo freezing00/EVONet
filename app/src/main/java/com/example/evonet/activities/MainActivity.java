@@ -127,6 +127,8 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
         for_us.setOnClickListener(this);
         setting.setOnClickListener(this);
 
+
+
         //drawer_layout.closeDrawer(GravityCompat.START);
 
     }

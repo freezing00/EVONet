@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/Widget.AppCompat.Toolbar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:gravity="center_vertical"
+                android:text="账户管理"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="4dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_person_24"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="48dp"
+            android:text ="学号"
+            android:gravity="center_vertical"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="1900101513"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_marginStart="265dp"
+            />
+
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="4dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_email_24"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="48dp"
+            android:text ="邮箱"
+            android:gravity="center_vertical"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="1473742892@qq.com"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_marginStart="180dp"
+            />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="380dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="4dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_smartphone_24"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="48dp"
+            android:text ="手机号"
+            android:gravity="center_vertical"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="15288953525"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_marginStart="255dp"
+            />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="380dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="4dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_lock_24"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="48dp"
+            android:text ="密码"
+            android:gravity="center_vertical"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="******"
+            android:gravity="center_vertical"
+            android:textSize="20dp"
+            android:layout_marginStart="325dp"
+            />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="380dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_weight="1">
+
+        <Button
+            android:text="退出登录"
+            android:id="@+id/log_in_button"
+            android:textColor="@color/white"
+            android:background="@color/design_default_color_primary_variant"
+            android:layout_marginTop="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_width="280dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</LinearLayout>

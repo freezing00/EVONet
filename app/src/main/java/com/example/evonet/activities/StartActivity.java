@@ -58,7 +58,6 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         }
 
 
-        //TODO 自动登录
         if (BmobUser.isLogin()){
             Intent intent = new Intent(StartActivity.this,MainActivity.class);
             startActivity(intent);
