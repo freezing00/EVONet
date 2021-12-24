@@ -41,18 +41,18 @@ public class MainActivity extends BaseActivities implements ActivityInterface {
     private TextView userId,userName;
     private RelativeLayout accountManager,message,major,courseTable,setting,for_us;
 
-    private Handler handler = new Handler(){
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            if((Integer)msg.obj==0){
-                userImage.setImageBitmap(bitmap);
-            }
-//            if (msg.what == 0x0){
-//                ((Personal)mPerson).getmTips().setText("");
+//    private Handler handler = new Handler(){
+//        @Override
+//        public void handleMessage(@NonNull Message msg) {
+//            super.handleMessage(msg);
+//            if((Integer)msg.obj==0){
+//                userImage.setImageBitmap(bitmap);
 //            }
-        }
-    };
+////            if (msg.what == 0x0){
+////                ((Personal)mPerson).getmTips().setText("");
+////            }
+//        }
+//    };
 
 
     @Override
