@@ -23,7 +23,6 @@ public class BaseActivities extends AppCompatActivity implements View.OnClickLis
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
     }
-
     @Override
     public void onClick(View view) {
 

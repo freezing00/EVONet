@@ -30,7 +30,7 @@
         <meta-data android:name="com.baidu.lbsapi.API_KEY"
             android:value="GY5Cu3GbB3lCt5SuGFEcK21kh8rrInvg"/>
         <activity android:name=".activities.RecordActivity"/>
-        <activity android:name=".activities.SignIn" />
+        <activity android:name=".activities.SignActivity" />
         <activity android:name=".activities.AddLesson" />
         <activity android:name=".activities.SplashActivity" />
         <activity

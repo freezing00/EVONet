@@ -20,7 +20,7 @@ public class RecordActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RecordActivity.this, SignIn.class);
+                Intent intent = new Intent(RecordActivity.this, SignActivity.class);
                 startActivity(intent);
             }
         });

@@ -11,10 +11,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,14 +22,13 @@ import com.example.evonet.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
 //对应activity_add_lesson.xml中签到打卡和考勤记录两个按钮的点击事件
-public class SignIn extends AppCompatActivity {
+public class SignActivity extends AppCompatActivity {
     private Button button_kaoqin, button_qiandao;//全局变量
     private ImageView fanhui;//跳转到主界面
     private TextView gps;//显示GPS定位信息
+//    private Bundle bundle;//传递签到信息给RecordActivity
 
 
     @Override
@@ -52,7 +49,7 @@ public class SignIn extends AppCompatActivity {
                 //GPS定位
                 LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 //                Toast.makeText(SignIn.this,"签到成功！",Toast.LENGTH_SHORT).show();
-                if (ActivityCompat.checkSelfPermission(SignIn.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(SignIn.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(SignActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(SignActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
                     // here to request the missing permissions, and then overriding
@@ -100,7 +97,7 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View v) {
                 String status=button_qiandao.getText().toString();//获取当前签到成功与否的状态
                 String time=GetTime();//获取签到时间
-                Intent intent=new Intent(SignIn.this,RecordActivity.class);
+                Intent intent=new Intent(SignActivity.this,RecordActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putCharSequence("签到时间",time);
                 bundle.putCharSequence("签到状态",status);
@@ -113,7 +110,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();//关闭活动，回到签到界面
-                Intent intent = new Intent(SignIn.this,MainActivity.class);
+                Intent intent = new Intent(SignActivity.this,MainActivity.class);
                 startActivity(intent);
             }
         });
