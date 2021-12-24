@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--底部导航栏-->
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        app:showAsAction="never"
+        android:title="主页" />
+    <item
+        android:id="@+id/navigation_signin"
+        android:icon="@drawable/qiandao"
+        app:showAsAction="never"
+        android:title="@string/fragment_signin" />
+
+    <item
+        android:id="@+id/navigation_call"
+        android:icon="@drawable/dianm"
+        app:showAsAction="never"
+        android:title="@string/fragment_call" />
+
+</menu>

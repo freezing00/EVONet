@@ -4,27 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SignIn"
-    android:id="@+id/qiandao"
+    tools:context=".activities.SignActivity"
+    android:id="@+id/qiandao_frag"
     android:orientation="vertical"
     >
-    <ImageView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/back"
-        android:src="@drawable/fanhui"
+        >
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:id="@+id/back"
+            android:src="@drawable/fanhui"
 
-        />
-    <TextView
-        android:layout_width="wrap_content"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="课程签到"
+            android:textColor="@color/black"
+            android:layout_marginStart="160dp"
+            android:textSize="25dp"
+            android:id="@+id/lesson_xml_head"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="课程签到"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:id="@+id/lesson_xml_head"
-        />
+        android:id="@+id/gps"
+        >
 
+        <ImageView
+            android:id="@+id/gps_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gps" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/show_gps"
+            android:layout_toRightOf="@+id/gps_img"
+            android:layout_alignBottom="@+id/gps_img"
+            android:text="等待定位........"
+
+            />
+
+    </RelativeLayout>
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,17 +61,18 @@
     <Button
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
         android:layout_gravity="center"
         android:text="签到打卡"
         android:id="@+id/button_qiandao"
         />
     <Button
+
         android:layout_width="140dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
         android:id="@+id/button_kaoqin"
         android:layout_gravity="center"
         android:text="考勤记录"
