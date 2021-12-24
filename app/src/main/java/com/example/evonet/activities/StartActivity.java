@@ -29,6 +29,7 @@ import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
+import cn.bmob.v3.listener.SaveListener;
 
 
 public class StartActivity extends BaseActivities implements ActivityInterface{
@@ -49,12 +50,12 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         setContentView(R.layout.activity_start);
         bindView();
 
-//        if (!FileManager.getAccount(this).equals("")){
-//            ck_remember.setChecked(true);
-//            ck_remember.setSelected(true);
-//            et_startUser.setText(FileManager.getAccount(this));
-//            et_startPassword.setText(FileManager.getPassword(this));
-//        }
+        if (!FileManager.getAccount(this).equals("")){
+            ck_remember.setChecked(true);
+            ck_remember.setSelected(true);
+            et_startUser.setText(FileManager.getAccount(this));
+            et_startPassword.setText(FileManager.getPassword(this));
+        }
 
 
         //TODO 自动登录
@@ -113,7 +114,6 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
             @Override
             public void done(User user, BmobException e) {
                 if (e==null){
-                    System.out.println("in");
                     Toast.makeText(StartActivity.this,"登录成功",Toast.LENGTH_SHORT).show();
                     try {
                         user = BmobUser.getCurrentUser(User.class);
@@ -140,6 +140,7 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
                 }
             }
         });
+
     }
 
     @Override
