@@ -33,4 +33,12 @@
             app:menu="@menu/navigation" />
     </LinearLayout>
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/information_view"
+        android:layout_gravity = "start"
+        layout="@layout/menu_information"
+        />
+
 </androidx.drawerlayout.widget.DrawerLayout>

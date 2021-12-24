@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.mob.sdk'  //添加这一行即可
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
 //    MobSDK {  TODO 等待审核通过

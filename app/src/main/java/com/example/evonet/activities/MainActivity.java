@@ -3,6 +3,7 @@ package com.example.evonet.activities;
 
 import androidx.annotation.NonNull;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,16 +11,22 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.evonet.R;
+import com.example.evonet.fragment.fragment_call;
+import com.example.evonet.fragment.fragment_home;
+import com.example.evonet.fragment.fragment_signin;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.widget.RelativeLayout;
@@ -60,7 +67,6 @@ public class MainActivity extends BaseActivities {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
@@ -82,9 +88,8 @@ public class MainActivity extends BaseActivities {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        bindView();
 
         //底部选择碎片切换
         navigation = findViewById(R.id.navigation);
