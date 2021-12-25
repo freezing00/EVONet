@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +17,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 
+import androidx.constraintlayout.solver.state.helpers.BarrierReference;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -40,11 +43,6 @@ public class MainActivity extends BaseActivities {
     private final int REQUEST_CODE_FINE_GPS = 2;
 
     private DrawerLayout mDrawerLayout;
-//    private TextView mUserName;
-//    private TextView mUserMotto;
-//    private LinearLayout mArticleLayout;
-//    private LinearLayout mVersionLayout;
-//    private LinearLayout mReviewLayout;
 
     //    private Bitmap bitmap;//从相册获得图片
     private BottomNavigationView navigation;
@@ -59,7 +57,6 @@ public class MainActivity extends BaseActivities {
     private FragmentTransaction transaction;
 
     //侧划栏
-    private DrawerLayout drawer_layout;
     private ImageView userImage,userIdCode;
     private Bitmap bitmap;
     private TextView userId,userName;
@@ -109,6 +106,18 @@ public class MainActivity extends BaseActivities {
     }
     private void iniSideView(){
         mDrawerLayout  = findViewById(R.id.drawer);
+        //侧滑栏布局绑定
+        accountManager = findViewById(R.id.layout_account_manager);
+        message = findViewById(R.id.layout_message);
+        courseTable = findViewById(R.id.layout_course_table);
+        major = findViewById(R.id.layout_major);
+        setting = findViewById(R.id.layout_setting);
+        for_us =findViewById(R.id.layout_for_us);
+        //侧滑栏头部
+        userImage = findViewById(R.id.userImage);
+        userId = findViewById(R.id.info_id);
+        userName = findViewById(R.id.info_name);
+
         iniFragment();
     }
     //初始化碎片
@@ -146,6 +155,46 @@ public class MainActivity extends BaseActivities {
 
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.userImage:
+                changeHeadImage();
+                break;
+            case R.id.info_id:
+                changeId();
+                break;
+            case R.id.info_name:
+                changeUserName();
+                break;
+            case R.id.layout_account_manager:
+                accountManager.setBackgroundResource(R.color.gray);
+                Intent intent = new Intent(MainActivity.this,AccountActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void changeUserName() {
+    }
+
+    private void changeId() {
+    }
+
+
+    private void changeHeadImage() {
+        if(ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            },1);
+        }
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, 2);
+    }
 }
 
 

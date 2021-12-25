@@ -139,7 +139,7 @@ public class SignActivity extends AppCompatActivity {
         return format.format(date);
     }
     public void locationUpdaes(Location location){
-        System.out.println("进入locationUpdates（）方法");
+//        System.out.println("进入locationUpdates（）方法");
         if(location!=null)
         {
             StringBuilder stringBuilder=new StringBuilder();
