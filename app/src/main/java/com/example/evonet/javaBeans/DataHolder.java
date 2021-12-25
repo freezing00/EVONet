@@ -9,6 +9,4 @@ public class DataHolder {
     public void setLoc_time(String loc_time) {this.loc_time=loc_time;}
     private static final DataHolder holder = new DataHolder();
     public static DataHolder getInstance() {return holder;}
-
-
 }
