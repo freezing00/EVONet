@@ -22,6 +22,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.MapView;
 import com.example.evonet.R;
 import com.example.evonet.javaBeans.DataHolder;
+import com.example.evonet.javaBeans.Lesson_Number_Holder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +32,8 @@ public class SignActivity extends AppCompatActivity {
     private Button button_kaoqin, button_qiandao;//全局变量
     private ImageView fanhui;//跳转到主界面
     private TextView gps;//显示GPS定位信息
+    private TextView show_lesson_number;
+    private String show_txt;
 //    private MapView mapView;//初始化全局变量地图组件
 //    private Bundle bundle;//传递签到信息给RecordActivity
 
@@ -48,6 +51,13 @@ public class SignActivity extends AppCompatActivity {
         button_qiandao = (Button) findViewById(R.id.button_qiandao);
         fanhui = (ImageView) findViewById(R.id.back);
         gps = (TextView) findViewById(R.id.show_gps);
+
+        show_lesson_number=(TextView)findViewById(R.id.show_lesson_number);
+        show_txt="课程号："+Lesson_Number_Holder.getInstance().getData();
+        show_lesson_number.setText(show_txt);//显示课程号
+
+
+
         //点击签到事件-这未做GPS
         // （GPS定位，定位准确则变成绿色，显示文本为签到成功；定位错误为签到失败）
 //        ,通过Intent借助Bundle和RecordActivity之间传递数据
