@@ -28,7 +28,7 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
     private RelativeLayout emailLayout,phoneNumberLayout,passwordLayout;
     FragmentHostCallback mHost;
     private Button quitButton;
-    private TextView email,phoneNumber,password;
+    private TextView email,phoneNumber,password,ID;
 
     private User user;//用于更新云数据库
 
@@ -47,9 +47,14 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
         phoneNumberLayout =  findViewById(R.id.account_phone_number);
         quitButton = findViewById(R.id.quit_button);
         passwordLayout = findViewById(R.id.account_password);
+        ID =findViewById(R.id.tv_id);
         email = findViewById(R.id.tv_email);
         phoneNumber = findViewById(R.id.tv_phoneNumber);
         password = findViewById(R.id.tv_password);
+
+        email.setText(user.getEmail());
+        phoneNumber.setText(user.getMobilePhone());
+        ID.setText(user.getUsername());
 
         emailLayout.setOnClickListener(AccountActivity.this);
         phoneNumberLayout.setOnClickListener(AccountActivity.this);
@@ -113,10 +118,10 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
             @Override
             public void done(BmobException e) {
                 if (e == null) {
-                    Toast.makeText(AccountActivity.this, "用户名更新成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountActivity.this, "密码更新成功", Toast.LENGTH_SHORT).show();
                     password.setText(updatePassword);
                 } else {
-                    Toast.makeText(AccountActivity.this, "用户名更新失败，请检查网络", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountActivity.this, "密码更新失败，请检查网络", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -128,10 +133,10 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
             @Override
             public void done(BmobException e) {
                 if (e == null) {
-                    Toast.makeText(AccountActivity.this, "用户名更新成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountActivity.this, "电话号码更新成功", Toast.LENGTH_SHORT).show();
                     phoneNumber.setText(updatePhoneNumber);
                 } else {
-                    Toast.makeText(AccountActivity.this, "用户名更新失败，请检查网络", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountActivity.this, "电话号码更新失败，请检查网络", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -143,10 +148,10 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
             @Override
             public void done(BmobException e) {
                 if (e == null) {
-                    Toast.makeText(AccountActivity.this, "用户名更新成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountActivity.this, "邮箱更新成功", Toast.LENGTH_SHORT).show();
                     email.setText(updateEmail);
                 } else {
-                    Toast.makeText(AccountActivity.this, "用户名更新失败，请检查网络", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AccountActivity.this, "邮箱更新失败，请检查网络", Toast.LENGTH_SHORT).show();
                 }
             }
         });
