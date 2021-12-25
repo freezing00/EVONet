@@ -44,7 +44,7 @@
             android:textColor="@color/black"
             android:textSize="20dp"
             android:text=""
-            android:layout_toRightOf="@+id/show_time"
+            android:layout_below="@+id/show_time"
             />
     </RelativeLayout>
 
