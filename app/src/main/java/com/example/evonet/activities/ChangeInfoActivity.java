@@ -35,29 +35,29 @@ public class ChangeInfoActivity extends AppCompatActivity implements ActivityInt
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                finishChange();
             }
         });
+        intent =getIntent();
     }
 
     private void finishChange() {
-        //TODO 数据库
         switch (intent.getStringExtra("function")){
             case "email":
                 intent =new Intent();
-                intent.putExtra("userEmail",editText.getText().toString());
+                intent.putExtra("email",editText.getText().toString());
                 setResult(RESULT_OK,intent);
                 finish();
                 break;
             case "phoneNumber":
                 intent =new Intent();
-                intent.putExtra("userPhoneNumber",editText.getText().toString());
+                intent.putExtra("phoneNumber",editText.getText().toString());
                 setResult(RESULT_OK,intent);
                 finish();
                 break;
             case "password":
                 intent =new Intent();
-                intent.putExtra("userPassword",editText.getText().toString());
+                intent.putExtra("password",editText.getText().toString());
                 setResult(RESULT_OK,intent);
                 finish();
                 break;

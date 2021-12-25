@@ -37,7 +37,7 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.menu_account);
-
+        user = BmobUser.getCurrentUser(User.class);
         bindView();
     }
 
@@ -107,7 +107,7 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
         }
     }
 
-    private void changePassword(String updatePassword) {
+    private void changePassword(final String updatePassword) {
         user.setPassword(updatePassword);
         user.update(new UpdateListener() {
             @Override
@@ -122,7 +122,7 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
         });
     }
 
-    private void changePhoneNumber(String updatePhoneNumber) {
+    private void changePhoneNumber(final String updatePhoneNumber) {
         user.setMobilePhoneNumber(updatePhoneNumber);
         user.update(new UpdateListener() {
             @Override
@@ -137,7 +137,7 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
         });
     }
 
-    private void changeEmail(String updateEmail) {
+    private void changeEmail(final String updateEmail) {
         user.setEmail(updateEmail);
         user.update(new UpdateListener() {
             @Override
