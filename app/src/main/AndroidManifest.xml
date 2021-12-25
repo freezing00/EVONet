@@ -49,6 +49,8 @@
 
         </activity>
         <activity android:name=".activities.RegisterActivity"></activity>
+        <activity android:name=".activities.AccountActivity"/>
+        <activity android:name=".activities.ChangeInfoActivity"/>
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="com.example.evonet.BmobContentProvider" />
