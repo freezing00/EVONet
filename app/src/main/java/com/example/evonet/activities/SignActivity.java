@@ -18,7 +18,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.MapView;
 import com.example.evonet.R;
+import com.example.evonet.javaBeans.DataHolder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,13 +31,19 @@ public class SignActivity extends AppCompatActivity {
     private Button button_kaoqin, button_qiandao;//全局变量
     private ImageView fanhui;//跳转到主界面
     private TextView gps;//显示GPS定位信息
+//    private MapView mapView;//初始化全局变量地图组件
 //    private Bundle bundle;//传递签到信息给RecordActivity
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+
+        //初始化地图SDK
+//        SDKInitializer.initialize(getApplicationContext());
+//        mapView=findViewById(R.id.mapview);//获取地图组件
+
+
         button_kaoqin = (Button) findViewById(R.id.button_kaoqin);
         button_qiandao = (Button) findViewById(R.id.button_qiandao);
         fanhui = (ImageView) findViewById(R.id.back);
@@ -97,11 +106,9 @@ public class SignActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String status=button_qiandao.getText().toString();//获取当前签到成功与否的状态
                 String time=GetTime();//获取签到时间
+                DataHolder.getInstance().setLoc_time(time);
+                DataHolder.getInstance().setStatus(status);
                 Intent intent=new Intent(SignActivity.this,RecordActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putCharSequence("签到时间",time);
-                bundle.putCharSequence("签到状态",status);
-                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -110,11 +117,10 @@ public class SignActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();//关闭活动，回到签到界面
-                Intent intent = new Intent(SignActivity.this,MainActivity.class);
-                startActivity(intent);
             }
         });
     }
+
     //获取当前系统运行时间，作为Bundle所要传递的数据传递给Record
     @SuppressLint("SimpleDateFormat")
     public static String GetTime() {

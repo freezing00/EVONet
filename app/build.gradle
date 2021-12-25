@@ -42,9 +42,6 @@ android {
     useLibrary 'org.apache.http.legacy'//配置bmob
 
 }
-
-
-
 dependencies {
     implementation 'io.github.bmob:android-sdk:3.8.11'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'

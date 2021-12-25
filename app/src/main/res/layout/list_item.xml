@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/item_layout"
+        >
+        <!--课程号-->
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/lesson_number"
+            android:background="@color/purple_500"
+            android:textColor="@color/white"
+            android:gravity="bottom"
+            />
+        <!--课程名-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lesson_name"
+            android:text=""
+            android:textSize="15dp"
+            android:textColor="@color/black"
+            android:layout_toRightOf="@+id/lesson_number"
+            />
+        <TextView
+            android:id="@+id/learn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lesson_number"
+            android:layout_toRightOf="@id/lesson_number"
+            android:background="@drawable/ic_baseline_check_box_outline_blank_24"
+            android:gravity="center"
+            android:text="@string/learn"
+            android:textSize="10dp" />
+        <!--该课程的总人数-->
+        <TextView
+            android:id="@+id/lesson_sum_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_toRightOf="@+id/learn1"
+            android:layout_alignBottom="@id/learn1"
+            android:textSize="10dp"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

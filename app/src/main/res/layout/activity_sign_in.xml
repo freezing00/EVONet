@@ -8,6 +8,7 @@
     android:id="@+id/qiandao_frag"
     android:orientation="vertical"
     >
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,11 +51,16 @@
             android:text="等待定位........"
 
             />
-
     </RelativeLayout>
+<!--    <com.baidu.mapapi.map.MapView-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:id="@+id/mapview"-->
+<!--        />-->
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/huojian" />
 
@@ -68,7 +74,6 @@
         android:id="@+id/button_qiandao"
         />
     <Button
-
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="2dp"
