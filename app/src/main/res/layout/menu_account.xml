@@ -76,6 +76,7 @@
             android:textSize="20dp"/>
 
         <TextView
+            android:id="@+id/tv_email"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="1473742892@qq.com"
@@ -118,6 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="15288953525"
+            android:id="@+id/tv_phoneNumber"
             android:gravity="center_vertical"
             android:textSize="20dp"
             android:layout_marginStart="215dp"
@@ -157,6 +159,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="******"
+            android:id="@+id/tv_password"
             android:gravity="center_vertical"
             android:textSize="20dp"
             android:layout_marginStart="285dp"

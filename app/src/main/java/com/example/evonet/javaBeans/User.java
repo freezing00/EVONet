@@ -10,43 +10,34 @@ public class User extends BmobUser {
     * 数据成员
     * */
 
-    private String date;//日期
-    private String time;//时间
-    private String type;//考勤类型
-    private String status;//考勤状态
+    private String mobilePhone;//电话
+    private String nickName;//昵称
+    private String userType;//用户身份
     private BmobFile imageFile;//头像
     private Bitmap icon;
 
-    public String getDate() {
-        return date;
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
-    public String getTime() {
-        return time;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
-    public String getType() {
-        return type;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public BmobFile getImageFile() {
