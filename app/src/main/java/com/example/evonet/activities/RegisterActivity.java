@@ -5,18 +5,16 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.evonet.MyApplication;
 import com.example.evonet.R;
 import com.example.evonet.javaBeans.User;
 
 import java.util.Objects;
 
-import cn.bmob.v3.Bmob;
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -29,6 +27,7 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
     private EditText et_registerEmail;
     private EditText et_registerPhoneNumber;
     private EditText et_registerIdentifyNumber;
+    private RadioGroup rb_userType;
     private Button bt_registerSave,bt_registerCancel,bt_registerIdentify;
 
 
@@ -45,25 +44,40 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
     @Override
     public void onClick(View view) {
         super.onClick(view);
+
         switch (view.getId()){
             case R.id.bt_regist_save:
+                String user_type = null;
+                int typeStatus = rb_userType.getCheckedRadioButtonId();
+                switch (typeStatus){
+                    case R.id.user_student:
+                        user_type= "学生";
+                        break;
+                    case R.id.user_teacher:
+                        user_type = "老师";
+                        break;
+                    default:
+                        break;
+                }
                 String user_num = et_registerUser.getText().toString();
                 String user_email = et_registerEmail.getText().toString().trim();
                 String user_phoneNumber = et_registerPhoneNumber.getText().toString().trim();
                 String user_password = et_registerPassword.getText().toString().trim();
                 String user_identify = et_registerIdentifyNumber.getText().toString().trim();
+
                 // 非空验证
-                if (user_num.isEmpty() || user_password.isEmpty() || user_email.isEmpty() ||  user_phoneNumber.isEmpty()  ||  user_identify.isEmpty()) {
+                if (user_num.isEmpty() || user_password.isEmpty() || user_email.isEmpty() ||  user_phoneNumber.isEmpty()  ||  user_identify.isEmpty()||user_type.isEmpty()) {
                     Toast.makeText(RegisterActivity.this, "信息必须填写完整", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                //TODO bmob
                 User user = new User();
                 user.setUsername(user_num);
                 user.setPassword(user_password);
                 user.setEmail(user_email);
                 user.setMobilePhoneNumber(user_phoneNumber);
+                user.setUserType(user_type);
+                System.out.println("sadasd"+user.getUserType());
                 user.signUp(new SaveListener<User>() {
                     @Override
                     public void done(User user, BmobException e) {
@@ -110,7 +124,7 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
         bt_registerIdentify = findViewById(R.id.bt_register_identify);
         bt_registerCancel = findViewById(R.id.bt_regist_cancel);
         bt_registerSave = findViewById(R.id.bt_regist_save);
-
+        rb_userType = findViewById(R.id.user_type);
         toolbar=findViewById(R.id.tool_bar);
 
 

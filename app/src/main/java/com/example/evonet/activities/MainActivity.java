@@ -4,23 +4,16 @@ package com.example.evonet.activities;
 import androidx.annotation.NonNull;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
 
-import androidx.constraintlayout.solver.state.helpers.BarrierReference;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -30,13 +23,15 @@ import com.example.evonet.R;
 import com.example.evonet.fragment.fragment_call;
 import com.example.evonet.fragment.fragment_home;
 import com.example.evonet.fragment.fragment_signin;
+import com.example.evonet.javaBeans.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import org.jetbrains.annotations.NotNull;
+import cn.bmob.v3.BmobUser;
+
 public class MainActivity extends BaseActivities {
     //百度地图API调用
     private final int GPS_REQUEST_CODE = 10;
@@ -86,7 +81,18 @@ public class MainActivity extends BaseActivities {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        User user  = BmobUser.getCurrentUser(User.class);
+        //TODO 根据身份选择布局
+        switch (user.getUserType()){
+            case "学生":
+                setContentView(R.layout.activity_main);
+                break;
+            case "老师":
+                setContentView(R.layout.activity_main);
+                break;
+            default:
+                break;
+        }
 
         //底部选择碎片切换
         navigation = findViewById(R.id.navigation);
