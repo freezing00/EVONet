@@ -42,8 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.StartActivity"
+        <activity android:name=".activities.StartActivity"
             android:exported="true" />
         <activity android:name=".activities.MainActivity">
 

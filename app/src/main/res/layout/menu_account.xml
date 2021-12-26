@@ -35,24 +35,24 @@
             android:layout_marginBottom="4dp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/ic_baseline_person_24"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="48dp"
-            android:text ="学号"
             android:gravity="center_vertical"
-            android:textSize="20dp"/>
+            android:text="学号"
+            android:textSize="20dp" />
 
         <TextView
+            android:id="@+id/tv_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="1900101513"
-            android:gravity="center_vertical"
-            android:textSize="20dp"
             android:layout_marginStart="245dp"
-            />
+            android:gravity="center_vertical"
+            android:textSize="20dp" />
 
-        
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -76,9 +76,9 @@
             android:textSize="20dp"/>
 
         <TextView
+            android:id="@+id/tv_email"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="1473742892@qq.com"
             android:gravity="center_vertical"
             android:textSize="20dp"
             android:layout_marginStart="140dp"
@@ -117,7 +117,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="15288953525"
+            android:id="@+id/tv_phoneNumber"
             android:gravity="center_vertical"
             android:textSize="20dp"
             android:layout_marginStart="215dp"
@@ -156,7 +156,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="******"
+            android:id="@+id/tv_password"
             android:gravity="center_vertical"
             android:textSize="20dp"
             android:layout_marginStart="285dp"

@@ -20,7 +20,7 @@ public class Dao {
     private final String TAG = "Dao";
 
     public static final String USER = "User";
-    private String[] USER_COLUMNS   = new String[]{"Date","Time","Type","Status"};
+    private String[] USER_COLUMNS   = new String[]{"mobilePhone","nickName","userType"};
     private Context context;
     private MySQLiteHelper sqLiteHelper;
 
@@ -110,10 +110,9 @@ public class Dao {
             database.beginTransaction();
 
             ContentValues values = new ContentValues();
-            values.put("Date",user.getDate());
-            values.put("Time", user.getTime());
-            values.put("Type", user.getType());
-            values.put("Status", user.getStatus());
+            values.put("mobilePhone",user.getMobilePhone());
+            values.put("nickName", user.getNickName());
+            values.put("userType", user.getUserType());
             database.insertOrThrow(MySQLiteHelper.TABLE_USER, null, values);
 
             database.setTransactionSuccessful();
@@ -201,10 +200,9 @@ public class Dao {
     @SuppressLint("Range")
     private User parseUser(Cursor cursor) {
         User user = new User();
-        user.setDate(cursor.getString(cursor.getColumnIndex(USER_COLUMNS[0])));
-        user.setTime(cursor.getString(cursor.getColumnIndex(USER_COLUMNS[1])));
-        user.setType(cursor.getString(cursor.getColumnIndex(USER_COLUMNS[2])));
-        user.setStatus(cursor.getString(cursor.getColumnIndex(USER_COLUMNS[3])));
+        user.setEmail(cursor.getString(cursor.getColumnIndex(USER_COLUMNS[0])));
+        user.setNickName(cursor.getString(cursor.getColumnIndex(USER_COLUMNS[1])));
+        user.setMobilePhone(cursor.getString(cursor.getColumnIndex(USER_COLUMNS[2])));
         return user;
     }
 }
