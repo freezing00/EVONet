@@ -47,14 +47,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Method;
 
-public class fragment_home extends Fragment {
+public class fragment_home_student extends Fragment {
     private Toolbar toolbar = null;//
     private TextView mTips;
     private Handler handler;
 
     Bundle bundle= new Bundle();
-//    private View view;
-    public fragment_home(){}
+    //    private View view;
+    public fragment_home_student(){}
 
     @Override
     public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -69,10 +69,10 @@ public class fragment_home extends Fragment {
 //        setHasOptionsMenu(true);
 
         initToolbar(toolbar, "==", false);
-        View view = inflater.inflate(R.layout.homefragment,container,false);
+        View view = inflater.inflate(R.layout.studenthomefragment,container,false);
         iniViews(view);
         toolbar = view.findViewById(R.id.toolbar);
-        toolbar.inflateMenu(R.menu.toolbar_teacher);
+        toolbar.inflateMenu(R.menu.toolbar_popmenu);
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             //4.0以上不显示icon，未解决（用反射）
@@ -144,7 +144,7 @@ public class fragment_home extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
-////重写选项菜单
+    ////重写选项菜单
 //    @Override
 //    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 //        inflater.inflate(R.menu.toolbar_popmenu,menu);

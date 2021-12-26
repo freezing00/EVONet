@@ -17,10 +17,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.MapView;
 import com.example.evonet.R;
+import com.example.evonet.fragment.fragment_signin;
 import com.example.evonet.javaBeans.DataHolder;
 import com.example.evonet.javaBeans.Lesson_Number_Holder;
 
@@ -33,6 +35,7 @@ public class SignActivity extends AppCompatActivity {
     private ImageView fanhui;//跳转到主界面
     private TextView gps;//显示GPS定位信息
     private TextView show_lesson_number;
+    private  TextView whether_sign;//显示教师是否正在考勤
     private String show_txt;
 //    private MapView mapView;//初始化全局变量地图组件
 //    private Bundle bundle;//传递签到信息给RecordActivity
@@ -51,6 +54,7 @@ public class SignActivity extends AppCompatActivity {
         button_qiandao = (Button) findViewById(R.id.button_qiandao);
         fanhui = (ImageView) findViewById(R.id.back);
         gps = (TextView) findViewById(R.id.show_gps);
+        whether_sign=(TextView)findViewById(R.id.whether_sign);
 
         show_lesson_number=(TextView)findViewById(R.id.show_lesson_number);
         show_txt="课程号："+Lesson_Number_Holder.getInstance().getData();
@@ -127,6 +131,8 @@ public class SignActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();//关闭活动，回到签到界面
+//                Intent intent=new Intent(SignActivity.this, Fragment.SavedState);
+//                startActivity(intent);
             }
         });
     }

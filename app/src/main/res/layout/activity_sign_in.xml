@@ -35,7 +35,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/show_lesson_number"
         android:textSize="15dp"
-        android:layout_toRightOf="@+id/gps_img"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/whether_sign"
+        android:text="当前教师未发布考勤"
+        android:textSize="15dp"
 
         />
     <RelativeLayout
