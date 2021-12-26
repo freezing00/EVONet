@@ -58,12 +58,12 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         }
 
 
-        if (BmobUser.isLogin()){
-            Intent intent = new Intent(StartActivity.this,MainActivity.class);
-            startActivity(intent);
-            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
-            finish();
-        }
+//        if (BmobUser.isLogin()){
+//            Intent intent = new Intent(StartActivity.this,MainActivity.class);
+//            startActivity(intent);
+//            Toast.makeText(this,"欢迎回来",Toast.LENGTH_SHORT).show();
+//            finish();
+//        }
 
     }
 

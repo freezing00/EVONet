@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
+import android.view.Menu;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,6 +25,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.evonet.R;
 import com.example.evonet.fragment.fragment_call;
 import com.example.evonet.fragment.fragment_home;
+import com.example.evonet.fragment.fragment_home_student;
 import com.example.evonet.fragment.fragment_signin;
 import com.example.evonet.javaBeans.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,26 +34,33 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+
 import cn.bmob.v3.BmobUser;
 
 public class MainActivity extends BaseActivities {
     //百度地图API调用
     private final int GPS_REQUEST_CODE = 10;
     private final int REQUEST_CODE_FINE_GPS = 2;
+//    private Menu toolbar_popmenu;
 
     private DrawerLayout mDrawerLayout;
 
     //    private Bitmap bitmap;//从相册获得图片
-    private BottomNavigationView navigation;
-    private FragmentManager fragmentManager;
+    private BottomNavigationView navigation;//底部导航栏
+    private FragmentManager fragmentManager;//碎片管理器
     private String path ;//图片路径
     private Fragment mContent = new Fragment();// 记录下当前碎片 由于替换
     //  切换碎片
-    private Fragment call_fragment;
+    //学生端
     private Fragment sign_fragment;
-    private Fragment home_fragment;
+    private Fragment student_home_fragment;
+    //教师端
+    private Fragment call_fragment;
+    private Fragment teacher_home_fragment;
 
     private FragmentTransaction transaction;
+
+    private String userType="学生";//老师-教师端，学生-学生端
 
     //侧划栏
     private ImageView userImage,userIdCode;
@@ -68,8 +79,11 @@ public class MainActivity extends BaseActivities {
                 case R.id.navigation_call:
                     switchContent(call_fragment);
                     return true;
-                case R.id.navigation_home:
-                    switchContent(home_fragment);
+                case R.id.navigation_home_student:
+                    switchContent(student_home_fragment);
+                    return true;
+                case R.id.navigation_home_teacher:
+                    switchContent(teacher_home_fragment);
                     return true;
             }
             return false;
@@ -85,10 +99,10 @@ public class MainActivity extends BaseActivities {
         //TODO 根据身份选择布局
         switch (user.getUserType()){
             case "学生":
-                setContentView(R.layout.activity_main);
+                setContentView(R.layout.activity_main_student);
                 break;
             case "老师":
-                setContentView(R.layout.activity_main);
+                setContentView(R.layout.activity_main_teacher);
                 break;
             default:
                 break;
@@ -119,28 +133,48 @@ public class MainActivity extends BaseActivities {
         major = findViewById(R.id.layout_major);
         setting = findViewById(R.id.layout_setting);
         for_us =findViewById(R.id.layout_for_us);
+
         //侧滑栏头部
         userImage = findViewById(R.id.userImage);
         userId = findViewById(R.id.info_id);
         userName = findViewById(R.id.info_name);
+//通过用户ID切换不同的主界面
+        switch (userType){
+            case "老师":
+                iniFragment_teacher();
+                break;
+            case "学生":
+                iniFragment_student();
+                break;
+            default:
+                break;
+        }
 
-        iniFragment();
+//        iniFragment();
     }
     //初始化碎片
-
-    private void iniFragment(){
+    //初始化学生端主界面
+    private void iniFragment_student(){
         sign_fragment = new fragment_signin();
-        call_fragment  =new fragment_call();
-        home_fragment =new fragment_home();
+        student_home_fragment =new fragment_home_student();
 
         fragmentManager = getSupportFragmentManager();
-        mContent=home_fragment;
+        mContent=student_home_fragment;
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(R.id.fragment, mContent).commit();
-        navigation.setSelectedItemId(R.id.navigation_home);
+        navigation.setSelectedItemId(R.id.navigation_home_student);
     }
+    //初始化教师端主界面
+    private void iniFragment_teacher(){
+        call_fragment  =new fragment_call();
+        teacher_home_fragment =new fragment_home();
 
-
+        fragmentManager = getSupportFragmentManager();
+        mContent=teacher_home_fragment;
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.fragment, mContent).commit();
+        navigation.setSelectedItemId(R.id.navigation_home_teacher);
+    }
     /**
      * 修改显示的内容 不会重新加载
      * to 下一个fragment
