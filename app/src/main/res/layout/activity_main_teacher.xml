@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.evonet.activities.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bar"
+        android:orientation="vertical"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/fragment"
+             />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="?android:attr/windowBackground"
+            android:theme="@style/BottomNavigationTheme"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:menu="@menu/navigation_teacher" />
+    </LinearLayout>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/information_view"
+        android:layout_gravity = "start"
+        layout="@layout/menu_information"
+        />
+
+</androidx.drawerlayout.widget.DrawerLayout>
