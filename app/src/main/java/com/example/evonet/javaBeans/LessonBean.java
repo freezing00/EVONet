@@ -1,6 +1,9 @@
 package com.example.evonet.javaBeans;
+
+import cn.bmob.v3.BmobObject;
+
 //课程列表的每一个Item
-public class LessonBean {
+public class LessonBean extends BmobObject {
     String name;//课程名
     String number;//课程号
     String sum_person;//课程总人数

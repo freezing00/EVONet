@@ -7,12 +7,8 @@ import cn.bmob.v3.datatype.BmobFile;
 public class Record extends BmobObject {
     private String time;//签到时间
     private String lesn;//课程号
-    private boolean status;//签到状态（出勤或缺勤）
     private String signId;//签到码
-
-    public boolean isStatus() {
-        return status;
-    }
+    private boolean status;//签到状态（出勤或缺勤）
 
     public String getSignId() {
         return signId;
@@ -20,6 +16,10 @@ public class Record extends BmobObject {
 
     public void setSignId(String signId) {
         this.signId = signId;
+    }
+
+    public boolean isStatus() {
+        return status;
     }
 
     public String getTime(){

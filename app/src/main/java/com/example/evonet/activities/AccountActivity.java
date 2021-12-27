@@ -53,7 +53,7 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
         password = findViewById(R.id.tv_password);
 
         email.setText(user.getEmail());
-        phoneNumber.setText(user.getMobilePhone());
+        phoneNumber.setText(user.getMobilePhoneNumber());
         ID.setText(user.getUsername());
 
         emailLayout.setOnClickListener(AccountActivity.this);

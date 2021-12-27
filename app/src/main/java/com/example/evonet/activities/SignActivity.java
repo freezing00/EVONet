@@ -160,6 +160,8 @@ public class SignActivity extends AppCompatActivity {
         switch (requestCode){
             case 0:
                 if (resultCode == RESULT_OK){
+                    assert data != null;
+                    record.setSignId(data.getStringExtra("courseSignId"));
                     BmobQuery<Sign> signBmobQuery = new BmobQuery<Sign>();
                     signBmobQuery.addWhereEqualTo("courseNum",show_txt);
                     final Sign[] thisSign = {new Sign()};
@@ -168,23 +170,28 @@ public class SignActivity extends AppCompatActivity {
                         public void done(List<Sign> list, BmobException e) {
                             if (e==null){
                                 for (Sign sign:list){
-                                    if (sign.getTime() == record.getTime()){
-                                        thisSign[0] = sign;
-                                        break;
+                                    if (sign.getSignId() == record.getSignId()){
+                                        if(record.getStatus()){
+                                            record.setStatus(true);
+                                            Toast.makeText(SignActivity.this,"签到成功",Toast.LENGTH_SHORT).show();
+                                            break;
+                                        }
+                                        else{
+                                            record.setStatus(false);
+                                            Toast.makeText(SignActivity.this,"签到超时",Toast.LENGTH_SHORT).show();
+                                            return;
+                                        }
+                                    }
+                                    else{
+                                        record.setStatus(false);
+                                        Toast.makeText(SignActivity.this,"签到失败",Toast.LENGTH_SHORT).show();
+                                        return;
                                     }
                                 }
                             }
                         }
                     });
-                    assert data != null;
-                    record.setSignId(data.getStringExtra("courseSignId"));
-                    if (record.getSignId()==thisSign[0].getSignId()){
-                        record.setStatus(true);
-                    }
-                    else {
-                        record.setStatus(false);
-                    }
-                    String status=button_qiandao.getText().toString();//获取当前签到成功与否的状态
+
                     String time=GetTime();//获取签到时间
                     record.setTime(time);
                     record.setLesn(show_txt);

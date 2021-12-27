@@ -67,6 +67,12 @@ public class ChangeInfoActivity extends AppCompatActivity implements ActivityInt
                 setResult(RESULT_OK,intent);
                 finish();
                 break;
+            case "signId":
+                intent =new Intent();
+                intent.putExtra("signId",editText.getText().toString());
+                setResult(RESULT_OK,intent);
+                finish();
+                break;
             default:
                 break;
         }

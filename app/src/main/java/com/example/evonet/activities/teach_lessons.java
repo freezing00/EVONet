@@ -18,12 +18,15 @@ import com.example.evonet.javaBeans.LessonsAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+
 public class teach_lessons extends AppCompatActivity {
-//    Bundle bundle = new Bundle();
+    //    Bundle bundle = new Bundle();
     //    private RelativeLayout layout1, layout2, layout3;//对应3个课程布局的点击事件
-    private final List<LessonBean> data=new ArrayList<>();
     private View view;
     private LessonsAdapter adapter;
+
     //    private View present_Item_View;//当前选中的Item对象的View
     private TextView textview_lesson_number;//获取item中的课程号
     private TextView textView_lesson_name;
@@ -32,6 +35,7 @@ public class teach_lessons extends AppCompatActivity {
     private String lesson_numbers;
     private String lesson_name;
     private String lesson_sum_person;
+    private List<LessonBean> data = new ArrayList<>();
 
 //    public teach_lessons() {
 //    }
@@ -44,25 +48,39 @@ public class teach_lessons extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LessonBean lessonBean = new LessonBean();
         setContentView(R.layout.activity_teach_lessons);
-        //装配数据源
-        LessonBean bean_as=new LessonBean();
-        bean_as.setName("安卓应用开发");
-        bean_as.setNumber("JHMXUS");
-        bean_as.setSum_person("111人");
-        data.add(bean_as);
+        lessonBean.setName("安卓应用开发"); ;//得到需要的课程号
+        lessonBean.setNumber("JHMXUS");
+        lessonBean.setSum_person("111人");
+        lessonBean.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+            }
+        });
+        data.add(lessonBean);
 
-        LessonBean bean_xs=new LessonBean();
-        bean_xs.setName("形势与政策");
-        bean_xs.setNumber("Q28GUH");
-        bean_xs.setSum_person("245人");
-        data.add(bean_xs);
+        lessonBean =new LessonBean();
+        lessonBean.setName("形势与政策"); ;//得到需要的课程号
+        lessonBean.setNumber("Q28GUH");
+        lessonBean.setSum_person("245人");
+        lessonBean.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+            }
+        });
+        data.add(lessonBean);
 
-        LessonBean bean_os=new LessonBean();
-        bean_os.setName("操作系统");
-        bean_os.setNumber("VKWRKC");
-        bean_os.setSum_person("151人");
-        data.add(bean_os);
+        lessonBean =new LessonBean();
+        lessonBean.setNumber("VKWRKC") ;//得到需要的课程号
+        lessonBean.setName("操作系统");
+        lessonBean.setSum_person("151人");
+        lessonBean.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+            }
+        });
+        data.add(lessonBean);
 
         ListView listView=findViewById(R.id.teachlesson);
         adapter=new LessonsAdapter(data,teach_lessons.this);
@@ -83,9 +101,7 @@ public class teach_lessons extends AppCompatActivity {
                 textview_lesson_number=view.findViewById(R.id.lesson_number_teah);
                 textView_lesson_name=view.findViewById(R.id.lesson_name_teah);
                 textView_lesson_sum_person=view.findViewById(R.id.lesson_sum_person_teah);
-                lesson_numbers =textview_lesson_number.getText().toString();//得到需要的课程号
-                lesson_name=textView_lesson_name.getText().toString();
-                lesson_sum_person=textView_lesson_sum_person.getText().toString();
+
 
                 Intent intent = new Intent(teach_lessons.this, Start_sign_Activity.class);//跳转到发布签到页面
                 Lesson_Data_Holder.get().setName(lesson_name);
