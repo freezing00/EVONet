@@ -96,6 +96,7 @@ public class MainActivity extends BaseActivities {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         User user  = BmobUser.getCurrentUser(User.class);
+        userType = user.getUserType();
         //TODO 根据身份选择布局
         switch (user.getUserType()){
             case "学生":
@@ -123,6 +124,15 @@ public class MainActivity extends BaseActivities {
                 REQUEST_CODE_FINE_GPS);
 
         iniSideView();
+//        int id=getIntent().getIntExtra("id",0);
+//        if (id==1)
+//        {
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragment,new fragment_call())
+//                    .addToBackStack(null)
+//                    .commit();
+//        }
     }
     private void iniSideView(){
         mDrawerLayout  = findViewById(R.id.drawer);

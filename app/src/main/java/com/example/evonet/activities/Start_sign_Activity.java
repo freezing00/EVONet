@@ -16,12 +16,16 @@ public class Start_sign_Activity extends AppCompatActivity {
     private Button pause;
     private Button end;
     private ImageView back;
+    private Intent intent_back;
     private TextView show_name,show_number,show_sum;//显示课程名，课程号，课程总人数
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_sign);
+
+
+
         show_name=(TextView)findViewById(R.id.sign_lesson_name);
         show_number=(TextView)findViewById(R.id.sign_lesson_number);
         show_sum=(TextView)findViewById(R.id.sign_lesson_sum);
@@ -40,8 +44,7 @@ public class Start_sign_Activity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_back=new Intent(Start_sign_Activity.this,teach_lessons.class);
-                startActivity(intent_back);//回到列表界面
+                finish();
             }
         });
 

@@ -27,20 +27,29 @@
             android:textColor="@color/black"
             />
     </RelativeLayout>
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/user_head"
+        android:src="@drawable/ic_baseline_person_24"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sign_lesson_name"
         android:textSize="25sp"
+        android:text="hello"
+        android:gravity="center_horizontal"
         android:textColor="@color/black"
-        android:layout_gravity="center_horizontal"
         />
     <TextView
+        android:text="world"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/sign_lesson_number"
-        android:textSize="10sp"
-        android:layout_gravity="center_horizontal"
+        android:textSize="15sp"
         />
     <ImageView
         android:layout_width="300dp"
@@ -81,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/pause"
-            android:text="暂停"
+            android:text="开始"
             android:layout_marginStart="40dp"
             android:textColor="@color/white"
             android:textSize="20dp"
