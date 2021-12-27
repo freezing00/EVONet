@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--课程名-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lesson_name_teah"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
+    <!--课程号-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lesson_number_teah"
+        android:textSize="10sp"
+        />
+    <!--该课程的总人数-->
+    <TextView
+        android:id="@+id/lesson_sum_person_teah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        />
+</LinearLayout>

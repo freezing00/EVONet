@@ -63,36 +63,12 @@
         android:layout_gravity="center_horizontal"
         android:src="@drawable/teacher"
         />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        >
-
-        <TextView
-            android:id="@+id/call_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0人签到" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:text="应到100人"
-            android:layout_below="@+id/call_num"
-            />
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/more"
-            android:layout_marginStart="350dp"
-            />
-    </RelativeLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/teacher_call_start"
         android:text="发起签到"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/white"
         android:textSize="20dp"
@@ -102,6 +78,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/teacher_crate_lesson"
         android:text="创建课程"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/white"
         android:textSize="20dp"

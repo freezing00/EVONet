@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.Start_sign_Activity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/back_sign"
+            android:src="@drawable/fanhui"
+            />
+        <!--显示点名暂停或者点名中-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点名中"
+            android:gravity="center_horizontal"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sign_lesson_name"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sign_lesson_number"
+        android:textSize="10sp"
+        android:layout_gravity="center_horizontal"
+        />
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/bg"
+        android:layout_gravity="center_horizontal"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <TextView
+            android:id="@+id/call_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0人签到" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:id="@+id/sign_lesson_sum"
+            android:layout_below="@+id/call_num"
+            />
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/more"
+            android:layout_marginStart="350dp"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pause"
+            android:text="暂停"
+            android:layout_marginStart="40dp"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/end"
+            android:text="结束"
+            android:layout_marginStart="130dp"
+            android:layout_toRightOf="@+id/pause"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+
+            />
+    </RelativeLayout>
+
+
+
+</LinearLayout>
