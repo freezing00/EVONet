@@ -35,7 +35,7 @@ public class teach_lessons extends AppCompatActivity {
     private String lesson_numbers;
     private String lesson_name;
     private String lesson_sum_person;
-    private List<LessonBean> data = new ArrayList<>();
+    private final List<LessonBean> data = new ArrayList<>();
 
 //    public teach_lessons() {
 //    }
@@ -53,34 +53,37 @@ public class teach_lessons extends AppCompatActivity {
         lessonBean.setName("安卓应用开发"); ;//得到需要的课程号
         lessonBean.setNumber("JHMXUS");
         lessonBean.setSum_person("111人");
+        data.add(lessonBean);
         lessonBean.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
             }
         });
-        data.add(lessonBean);
+
 
         lessonBean =new LessonBean();
         lessonBean.setName("形势与政策"); ;//得到需要的课程号
         lessonBean.setNumber("Q28GUH");
         lessonBean.setSum_person("245人");
+        data.add(lessonBean);
         lessonBean.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
             }
         });
-        data.add(lessonBean);
+
 
         lessonBean =new LessonBean();
         lessonBean.setNumber("VKWRKC") ;//得到需要的课程号
         lessonBean.setName("操作系统");
         lessonBean.setSum_person("151人");
+        data.add(lessonBean);
         lessonBean.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
             }
         });
-        data.add(lessonBean);
+
 
         ListView listView=findViewById(R.id.teachlesson);
         adapter=new LessonsAdapter(data,teach_lessons.this);
@@ -101,12 +104,14 @@ public class teach_lessons extends AppCompatActivity {
                 textview_lesson_number=view.findViewById(R.id.lesson_number_teah);
                 textView_lesson_name=view.findViewById(R.id.lesson_name_teah);
                 textView_lesson_sum_person=view.findViewById(R.id.lesson_sum_person_teah);
-
+                lesson_numbers =textview_lesson_number.getText().toString();//得到需要的课程号
+                lesson_name=textView_lesson_name.getText().toString();
+                lesson_sum_person=textView_lesson_sum_person.getText().toString();
 
                 Intent intent = new Intent(teach_lessons.this, Start_sign_Activity.class);//跳转到发布签到页面
-                Lesson_Data_Holder.get().setName(lesson_name);
-                Lesson_Data_Holder.get().setNumber(lesson_numbers);
-                Lesson_Data_Holder.get().setSum(lesson_sum_person);
+                Lesson_Data_Holder.getInstance().setName(lesson_name);
+                Lesson_Data_Holder.getInstance().setNumber(lesson_numbers);
+                Lesson_Data_Holder.getInstance().setSum(lesson_sum_person);
                 startActivity(intent);
             }
         });

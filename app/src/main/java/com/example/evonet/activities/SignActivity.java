@@ -69,7 +69,7 @@ public class SignActivity extends AppCompatActivity {
         whether_sign=(TextView)findViewById(R.id.whether_sign);
 
         show_lesson_number=(TextView)findViewById(R.id.show_lesson_number);
-        show_txt="课程号："+Lesson_Number_Holder.getInstance().getData();
+        show_txt=Lesson_Number_Holder.getInstance().getData();
         show_lesson_number.setText(show_txt);//显示课程号
 
 

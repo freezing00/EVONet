@@ -92,7 +92,7 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
                     sign.setSignId(data.getStringExtra("signId"));
                     String time=getTime();//获取发布签到时间
                     sign.setTime(time);
-                    sign.setCourseNumber(Lesson_Data_Holder.get().getNumber());
+                    sign.setCourseNumber(Lesson_Data_Holder.getInstance().getNumber());
                     setRealSign();
                     sign.setSignal(true);
                     sign.save(new SaveListener<String>() {
@@ -145,9 +145,9 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
         end=(Button)findViewById(R.id.end);
         back=(ImageView)findViewById(R.id.back_sign);
 
-        String name= Lesson_Data_Holder.get().getName();
-        String number=Lesson_Data_Holder.get().getNumber();
-        String sum="应到"+Lesson_Data_Holder.get().getSum()+"人";//从teach_lessons获取数据
+        String name= Lesson_Data_Holder.getInstance().getName();
+        String number=Lesson_Data_Holder.getInstance().getNumber();
+        String sum="应到"+Lesson_Data_Holder.getInstance().getSum()+"人";//从teach_lessons获取数据
         show_name.setText(name);
         show_number.setText(number);
         show_sum.setText(sum);
