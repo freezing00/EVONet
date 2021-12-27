@@ -21,6 +21,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
+
         String sql = "create table if not exists " + TABLE_USER + " (NickName text, Groups text, Motto text)";
         sqLiteDatabase.execSQL(sql);
         Log.d(TAG, "succeed");

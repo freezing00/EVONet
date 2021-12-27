@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
 import android.view.Menu;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,10 +27,15 @@ import com.example.evonet.fragment.fragment_call;
 import com.example.evonet.fragment.fragment_home;
 import com.example.evonet.fragment.fragment_home_student;
 import com.example.evonet.fragment.fragment_signin;
+import com.example.evonet.javaBeans.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+
+
+import cn.bmob.v3.BmobUser;
 
 public class MainActivity extends BaseActivities {
     //百度地图API调用
@@ -53,7 +60,7 @@ public class MainActivity extends BaseActivities {
 
     private FragmentTransaction transaction;
 
-    private int ID=1;//1-教师端，2-学生端
+    private String userType="学生";//老师-教师端，学生-学生端
 
     //侧划栏
     private ImageView userImage,userIdCode;
@@ -88,12 +95,14 @@ public class MainActivity extends BaseActivities {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        switch (ID){
-            case 1:
-                setContentView(R.layout.activity_main_teacher);
-                break;
-            case 2:
+        User user  = BmobUser.getCurrentUser(User.class);
+        //TODO 根据身份选择布局
+        switch (user.getUserType()){
+            case "学生":
                 setContentView(R.layout.activity_main_student);
+                break;
+            case "老师":
+                setContentView(R.layout.activity_main_teacher);
                 break;
             default:
                 break;
@@ -124,16 +133,17 @@ public class MainActivity extends BaseActivities {
         major = findViewById(R.id.layout_major);
         setting = findViewById(R.id.layout_setting);
         for_us =findViewById(R.id.layout_for_us);
+
         //侧滑栏头部
         userImage = findViewById(R.id.userImage);
         userId = findViewById(R.id.info_id);
         userName = findViewById(R.id.info_name);
 //通过用户ID切换不同的主界面
-        switch (ID){
-            case 1:
+        switch (userType){
+            case "老师":
                 iniFragment_teacher();
                 break;
-            case 2:
+            case "学生":
                 iniFragment_student();
                 break;
             default:

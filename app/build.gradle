@@ -6,11 +6,11 @@ android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
-//    MobSDK {  TODO 等待审核通过
-//        appKey "34ff68b377ef3"
-//        appSecret "ad737f7f4acaa34d4d54ace455bc560e"
-//        SMSSDK {}
-//    }
+    MobSDK {
+        appKey "34ff68b377ef3"
+        appSecret "ad737f7f4acaa34d4d54ace455bc560e"
+        SMSSDK {}
+    }
 
     defaultConfig {
         applicationId "com.example.evonet"

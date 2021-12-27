@@ -9,12 +9,38 @@ public class User extends BmobUser {
     /*
     * 数据成员
     * */
-
+    private String id;//学号
+    private String pass;//密码
+    private String realEmail;//邮箱
     private String mobilePhone;//电话
     private String nickName;//昵称
     private String userType;//用户身份
     private BmobFile imageFile;//头像
     private Bitmap icon;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public String getRealEmail() {
+        return realEmail;
+    }
+
+    public void setRealEmail(String realEmail) {
+        this.realEmail = realEmail;
+    }
 
     public String getMobilePhone() {
         return mobilePhone;

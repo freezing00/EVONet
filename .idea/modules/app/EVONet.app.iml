@@ -61,8 +61,9 @@
     <orderEntry type="library" name="Gradle: ./app/libs/protobuf_gens-map.jar" level="project" />
     <orderEntry type="library" name="Gradle: ./app/libs/javapoet-1.9.0.jar" level="project" />
     <orderEntry type="library" name="Gradle: ./app/libs/protobuf-java-2.3.0-micro.jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.mob:MobToolsMC:2021.1012.1522" level="project" />
-    <orderEntry type="library" name="Gradle: com.mob:MobCommonsMC:2021.1012.1522" level="project" />
+    <orderEntry type="library" name="Gradle: com.mob:MobToolsMCFP:2021.1222.2049" level="project" />
+    <orderEntry type="library" name="Gradle: com.mob:MobCommonsMCFP:2021.1222.2049" level="project" />
+    <orderEntry type="library" name="Gradle: com.mob:MobGUI:2019.0306.1850" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxjava:2.2.8" level="project" />
     <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:4.8.1" level="project" />
@@ -76,7 +77,9 @@
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout-solver:2.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.mob:MobGuardMC:2021.1012.1522@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.mob:MobGuardMCFP:2021.1222.2049@aar" level="project" />
+    <orderEntry type="library" name="Gradle: cn.smssdk:SMSSDK:3.7.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: cn.smssdk:ShortMessageSDKGUI:3.7.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.github.bmob:android-sdk:3.8.11@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxandroid:2.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.material:material:1.2.1@aar" level="project" />
