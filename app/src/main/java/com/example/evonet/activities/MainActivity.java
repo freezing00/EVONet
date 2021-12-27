@@ -97,8 +97,8 @@ public class MainActivity extends BaseActivities {
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         User user  = BmobUser.getCurrentUser(User.class);
         userType = user.getUserType();
-        //TODO 根据身份选择布局
-        switch (user.getUserType()){
+        userType = user.getUserType();
+        switch (userType){
             case "学生":
                 setContentView(R.layout.activity_main_student);
                 break;

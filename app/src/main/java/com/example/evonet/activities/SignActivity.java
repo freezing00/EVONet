@@ -13,8 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
@@ -25,9 +27,18 @@ import com.example.evonet.R;
 import com.example.evonet.fragment.fragment_signin;
 import com.example.evonet.javaBeans.DataHolder;
 import com.example.evonet.javaBeans.Lesson_Number_Holder;
+import com.example.evonet.javaBeans.Record;
+import com.example.evonet.javaBeans.Sign;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
+import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 
 //对应activity_add_lesson.xml中签到打卡和考勤记录两个按钮的点击事件
 public class SignActivity extends AppCompatActivity {
@@ -37,6 +48,7 @@ public class SignActivity extends AppCompatActivity {
     private TextView show_lesson_number;
     private  TextView whether_sign;//显示教师是否正在考勤
     private String show_txt;
+    private Record record = new Record();
 //    private MapView mapView;//初始化全局变量地图组件
 //    private Bundle bundle;//传递签到信息给RecordActivity
 
@@ -69,46 +81,50 @@ public class SignActivity extends AppCompatActivity {
         button_qiandao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //GPS定位
-                LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-//                Toast.makeText(SignIn.this,"签到成功！",Toast.LENGTH_SHORT).show();
-                if (ActivityCompat.checkSelfPermission(SignActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(SignActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                        1000,//间隔时间);
-                        1,//位置间隔
-                        new LocationListener() {//监听GOS信息是否改变
-                            @Override
-                            public void onLocationChanged(@NonNull Location location) {
-                                //GPS信息发生改变时回调
+                Intent intent = new Intent(SignActivity.this, ChangeInfoActivity.class);
+                intent.putExtra("function","courseSignId");
+                startActivityForResult(intent,0);
 
-                            }
-
-                            @Override
-                            public void onStatusChanged(String provider, int status, Bundle extras) {
-                                //GPS状态改变回调
-                            }
-
-                            @Override
-                            public void onProviderEnabled(@NonNull String provider) {
-                                //定位提供者启动时回调
-                            }
-
-                            @Override
-                            public void onProviderDisabled(@NonNull String provider) {
-                                //定位提供者关闭时回调
-                            }
-                        });
-                Location location=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);//获取最新定位信息
-                locationUpdaes(location);//将最新定位信息传递给该方法
+//                //GPS定位
+//                LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+////                Toast.makeText(SignIn.this,"签到成功！",Toast.LENGTH_SHORT).show();
+//                if (ActivityCompat.checkSelfPermission(SignActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(SignActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                    // TODO: Consider calling
+//                    //    ActivityCompat#requestPermissions
+//                    // here to request the missing permissions, and then overriding
+//                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                    //                                          int[] grantResults)
+//                    // to handle the case where the user grants the permission. See the documentation
+//                    // for ActivityCompat#requestPermissions for more details.
+//                    return;
+//                }
+//                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+//                        1000,//间隔时间);
+//                        1,//位置间隔
+//                        new LocationListener() {//监听GOS信息是否改变
+//                            @Override
+//                            public void onLocationChanged(@NonNull Location location) {
+//                                //GPS信息发生改变时回调
+//
+//                            }
+//
+//                            @Override
+//                            public void onStatusChanged(String provider, int status, Bundle extras) {
+//                                //GPS状态改变回调
+//                            }
+//
+//                            @Override
+//                            public void onProviderEnabled(@NonNull String provider) {
+//                                //定位提供者启动时回调
+//                            }
+//
+//                            @Override
+//                            public void onProviderDisabled(@NonNull String provider) {
+//                                //定位提供者关闭时回调
+//                            }
+//                        });
+//                Location location=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);//获取最新定位信息
+//                locationUpdaes(location);//将最新定位信息传递给该方法
 
 
             }
@@ -135,6 +151,55 @@ public class SignActivity extends AppCompatActivity {
 //                startActivity(intent);
             }
         });
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 0:
+                if (resultCode == RESULT_OK){
+                    BmobQuery<Sign> signBmobQuery = new BmobQuery<Sign>();
+                    signBmobQuery.addWhereEqualTo("courseNum",show_txt);
+                    final Sign[] thisSign = {new Sign()};
+                    signBmobQuery.findObjects( new FindListener<Sign>() {
+                        @Override
+                        public void done(List<Sign> list, BmobException e) {
+                            if (e==null){
+                                for (Sign sign:list){
+                                    if (sign.getTime() == record.getTime()){
+                                        thisSign[0] = sign;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    });
+                    assert data != null;
+                    record.setSignId(data.getStringExtra("courseSignId"));
+                    if (record.getSignId()==thisSign[0].getSignId()){
+                        record.setStatus(true);
+                    }
+                    else {
+                        record.setStatus(false);
+                    }
+                    String status=button_qiandao.getText().toString();//获取当前签到成功与否的状态
+                    String time=GetTime();//获取签到时间
+                    record.setTime(time);
+                    record.setLesn(show_txt);
+                    record.save(new SaveListener<String>() {
+                        @Override
+                        public void done(String s, BmobException e) {
+                            if (e==null){
+                                Toast.makeText(SignActivity.this,"保存记录成功",Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(SignActivity.this,"保存记录失败",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+        }
     }
 
     //获取当前系统运行时间，作为Bundle所要传递的数据传递给Record

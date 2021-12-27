@@ -7,6 +7,15 @@ public class Sign extends BmobObject {
     private String course;//课程
     private String realSignNumber;//实际签到数目
     private String signType;//签到种类
+    private String signId;//签到码
+
+    public String getSignId() {
+        return signId;
+    }
+
+    public void setSignId(String signId) {
+        this.signId = signId;
+    }
 
     public String getTime() {
         return time;
