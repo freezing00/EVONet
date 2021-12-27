@@ -123,22 +123,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/start"
-            android:text="开始"
-            android:layout_marginStart="40dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            />
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="开始"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <Button
             android:id="@+id/end"
-            android:text="结束"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="130dp"
             android:layout_toRightOf="@+id/start"
+            android:text="结束"
             android:textColor="@color/white"
             android:textSize="20dp"
 

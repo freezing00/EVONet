@@ -4,6 +4,9 @@
       <root url="jar://F:/.gradle/caches/transforms-2/files-2.1/2499adcd078b907be7d465fa48fa7a8b/ShortMessageSDKGUI-3.7.1/jars/classes.jar!/" />
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/2499adcd078b907be7d465fa48fa7a8b/ShortMessageSDKGUI-3.7.1/res" />
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/2499adcd078b907be7d465fa48fa7a8b/ShortMessageSDKGUI-3.7.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ca92bcedbcb1a0d3e184dd1ea8294981/ShortMessageSDKGUI-3.7.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ca92bcedbcb1a0d3e184dd1ea8294981/ShortMessageSDKGUI-3.7.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ca92bcedbcb1a0d3e184dd1ea8294981/ShortMessageSDKGUI-3.7.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

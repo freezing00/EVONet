@@ -9,6 +9,10 @@
       <root url="jar://F:/.gradle/caches/transforms-2/files-2.1/a4efde349afa7fd2775ee99f0e5ef307/android-sdk-3.8.11/jars/classes.jar!/" />
       <root url="jar://F:/.gradle/caches/transforms-2/files-2.1/a4efde349afa7fd2775ee99f0e5ef307/android-sdk-3.8.11/jars/libs/BmobSDK_3.8.11_20211009.jar!/" />
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/a4efde349afa7fd2775ee99f0e5ef307/android-sdk-3.8.11/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2b161070201ca0f5f9485474a5d359a3/android-sdk-3.8.11/jars/libs/BmobSDK_3.8.11_20211009.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2b161070201ca0f5f9485474a5d359a3/android-sdk-3.8.11/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2b161070201ca0f5f9485474a5d359a3/android-sdk-3.8.11/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2b161070201ca0f5f9485474a5d359a3/android-sdk-3.8.11/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

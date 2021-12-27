@@ -4,6 +4,9 @@
       <root url="jar://F:/.gradle/caches/transforms-2/files-2.1/6a222bb85dce9a722c9b8f7e9061b0a5/MobGuardMCFP-2021.1222.2049/jars/classes.jar!/" />
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/6a222bb85dce9a722c9b8f7e9061b0a5/MobGuardMCFP-2021.1222.2049/res" />
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/6a222bb85dce9a722c9b8f7e9061b0a5/MobGuardMCFP-2021.1222.2049/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d324cb5b2e1d05df129b3beae6cc4bf5/MobGuardMCFP-2021.1222.2049/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d324cb5b2e1d05df129b3beae6cc4bf5/MobGuardMCFP-2021.1222.2049/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d324cb5b2e1d05df129b3beae6cc4bf5/MobGuardMCFP-2021.1222.2049/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

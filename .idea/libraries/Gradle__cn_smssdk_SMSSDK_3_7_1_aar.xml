@@ -4,6 +4,9 @@
       <root url="jar://F:/.gradle/caches/transforms-2/files-2.1/cee43e74e694c11ef33e4575e44ddc7b/SMSSDK-3.7.1/jars/classes.jar!/" />
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/cee43e74e694c11ef33e4575e44ddc7b/SMSSDK-3.7.1/res" />
       <root url="file://F:/.gradle/caches/transforms-2/files-2.1/cee43e74e694c11ef33e4575e44ddc7b/SMSSDK-3.7.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5e66b62c569e97c29357656fe87c68d7/SMSSDK-3.7.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5e66b62c569e97c29357656fe87c68d7/SMSSDK-3.7.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5e66b62c569e97c29357656fe87c68d7/SMSSDK-3.7.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

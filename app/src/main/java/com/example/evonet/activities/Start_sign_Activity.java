@@ -34,8 +34,10 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
     private Intent intent_back;
     private TextView show_name,show_number,show_sum;//显示课程名，课程号，课程总人数
     private RadioGroup rb_signType;
-    private Sign sign = new Sign();
+    private static Sign sign = new Sign();
     private String signId;
+    private boolean sameCourse = true;
+    private static  String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,9 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
                     default:
                         break;
                 }
+                break;
             case R.id.end:
+                if (sameCourse){
                 sign.setSignal(false);
                 sign.update(new UpdateListener() {
                     @Override
@@ -78,6 +82,10 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
                         }
                     }
                 });
+                }
+                break;
+            default:
+                break;
 
         }
     }
@@ -145,10 +153,15 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
         end=(Button)findViewById(R.id.end);
         back=(ImageView)findViewById(R.id.back_sign);
 
-        String name= Lesson_Data_Holder.getInstance().getName();
+        if(name!=Lesson_Data_Holder.getInstance().getName()&&name!=null){
+            sameCourse =false;
+        }
+        else {
+            name = Lesson_Data_Holder.getInstance().getName();
+        }
         String number=Lesson_Data_Holder.getInstance().getNumber();
         String sum="应到"+Lesson_Data_Holder.getInstance().getSum()+"人";//从teach_lessons获取数据
-        show_name.setText(name);
+        show_name.setText(Lesson_Data_Holder.getInstance().getName());
         show_number.setText(number);
         show_sum.setText(sum);
 
