@@ -9,6 +9,15 @@ public class Record extends BmobObject {
     private String lesn;//课程号
     private String signId;//签到码
     private boolean status;//签到状态（出勤或缺勤）
+    private boolean signal;//签到信号
+
+    public boolean isSignal() {
+        return signal;
+    }
+
+    public void setSignal(boolean signal) {
+        this.signal = signal;
+    }
 
     public String getSignId() {
         return signId;

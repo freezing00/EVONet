@@ -9,6 +9,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -49,6 +51,8 @@ public class SignActivity extends AppCompatActivity {
     private  TextView whether_sign;//显示教师是否正在考勤
     private String show_txt;
     private Record record = new Record();
+    private static boolean finishFlag = true;
+    private static boolean already = true;
 //    private MapView mapView;//初始化全局变量地图组件
 //    private Bundle bundle;//传递签到信息给RecordActivity
 
@@ -147,8 +151,6 @@ public class SignActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();//关闭活动，回到签到界面
-//                Intent intent=new Intent(SignActivity.this, Fragment.SavedState);
-//                startActivity(intent);
             }
         });
     }
@@ -163,48 +165,43 @@ public class SignActivity extends AppCompatActivity {
                     assert data != null;
                     record.setSignId(data.getStringExtra("courseSignId"));
                     BmobQuery<Sign> signBmobQuery = new BmobQuery<Sign>();
-                    signBmobQuery.addWhereEqualTo("courseNum",show_txt);
+                  //  signBmobQuery.addWhereEqualTo("courseNum",show_txt);
                     final Sign[] thisSign = {new Sign()};
+                    //TODO 存在异步问题
                     signBmobQuery.findObjects( new FindListener<Sign>() {
                         @Override
                         public void done(List<Sign> list, BmobException e) {
                             if (e==null){
                                 for (Sign sign:list){
-                                    if (sign.getSignId() == record.getSignId()){
-                                        if(record.getStatus()){
-                                            record.setStatus(true);
-                                            Toast.makeText(SignActivity.this,"签到成功",Toast.LENGTH_SHORT).show();
-                                            break;
-                                        }
-                                        else{
-                                            record.setStatus(false);
-                                            Toast.makeText(SignActivity.this,"签到超时",Toast.LENGTH_SHORT).show();
-                                            return;
-                                        }
+                                    if (sign.getSignId().equals(record.getSignId())&&sign.isSignal()){
+                                        record.setStatus(true);
+                                        Toast.makeText(SignActivity.this,"签到成功",Toast.LENGTH_SHORT).show();
+                                        finishFlag = true;
+                                        break;
                                     }
-                                    else{
-                                        record.setStatus(false);
-                                        Toast.makeText(SignActivity.this,"签到失败",Toast.LENGTH_SHORT).show();
-                                        return;
-                                    }
+                                }
+                                if(!record.getStatus()){
+                                    Toast.makeText(SignActivity.this,"签到失败",Toast.LENGTH_SHORT).show();
+                                    finishFlag = false;
                                 }
                             }
                         }
                     });
-
                     String time=GetTime();//获取签到时间
                     record.setTime(time);
                     record.setLesn(show_txt);
-                    record.save(new SaveListener<String>() {
-                        @Override
-                        public void done(String s, BmobException e) {
-                            if (e==null){
-                                Toast.makeText(SignActivity.this,"保存记录成功",Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(SignActivity.this,"保存记录失败",Toast.LENGTH_SHORT).show();
+                    if(finishFlag){
+                        record.save(new SaveListener<String>() {
+                            @Override
+                            public void done(String s, BmobException e) {
+                                if (e==null){
+                                    Toast.makeText(SignActivity.this,"保存记录成功",Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(SignActivity.this,"保存记录失败",Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
+                        });
+                    }
                 }
         }
     }
