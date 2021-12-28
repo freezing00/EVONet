@@ -13,5 +13,11 @@
     <string name="fragment_signin">签到</string>
     <string name="fragment_call">点名</string>
 
+    <!--四种图片更新-->
+    <string name="auto_update">auto_update</string>
+    <string name="check_update">check_update</string>
+    <string name="download_silent">download_silent</string>
+    <string name="delete_apk">delete_apk</string>
+
 
 </resources>

@@ -50,7 +50,10 @@
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.ChangeInfoActivity" />
         <activity android:name=".activities.CreateLessonActivity"/>
-
+        <activity android:name=".activities.VersionControlActivity"/>
+        <activity android:name=".activities.MessageActivity"/>
+        <activity android:name=".activities.ForUsActivity"/>
+        <activity android:name=".activities.SettingActivity"/>
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"

@@ -9,12 +9,11 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import android.view.Menu;
-
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -66,7 +65,7 @@ public class MainActivity extends BaseActivities {
     private ImageView userImage,userIdCode;
     private Bitmap bitmap;
     private TextView userId,userName;
-    private RelativeLayout accountManager,message,major,courseTable,setting,for_us;
+    private RelativeLayout accountManager,message,version,setting,for_us;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -139,8 +138,7 @@ public class MainActivity extends BaseActivities {
         //侧滑栏布局绑定
         accountManager = findViewById(R.id.layout_account_manager);
         message = findViewById(R.id.layout_message);
-        courseTable = findViewById(R.id.layout_course_table);
-        major = findViewById(R.id.layout_major);
+        version = findViewById(R.id.layout_version);
         setting = findViewById(R.id.layout_setting);
         for_us =findViewById(R.id.layout_for_us);
 
@@ -148,6 +146,15 @@ public class MainActivity extends BaseActivities {
         userImage = findViewById(R.id.userImage);
         userId = findViewById(R.id.info_id);
         userName = findViewById(R.id.info_name);
+
+        userImage.setOnClickListener(this);
+        userName.setOnClickListener(this);
+
+        message.setOnClickListener(this);
+        //version.setOnClickListener(this);
+        accountManager.setOnClickListener(this);
+        for_us.setOnClickListener(this);
+        setting.setOnClickListener(this);
 //通过用户ID切换不同的主界面
         switch (userType){
             case "老师":
@@ -207,30 +214,69 @@ public class MainActivity extends BaseActivities {
 
     @Override
     public void onClick(View view) {
+        accountManager.setBackgroundResource(R.color.white);
+        message.setBackgroundResource(R.color.white);
+        version.setBackgroundResource(R.color.white);
+        for_us.setBackgroundResource(R.color.white);
+        setting.setBackgroundResource(R.color.white);
         switch (view.getId()){
             case R.id.userImage:
                 changeHeadImage();
                 break;
-            case R.id.info_id:
-                changeId();
-                break;
             case R.id.info_name:
-                changeUserName();
+                Intent thisIntent = new Intent(MainActivity.this, ChangeInfoActivity.class);
+                thisIntent.putExtra("function","name");
+                startActivityForResult(thisIntent,0);
                 break;
             case R.id.layout_account_manager:
                 accountManager.setBackgroundResource(R.color.gray);
                 Intent intent = new Intent(MainActivity.this,AccountActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.layout_message:
+                message.setBackgroundResource(R.color.gray);
+                Intent messageIntent = new Intent(MainActivity.this, MessageActivity.class);
+                startActivity(messageIntent);
+                break;
+            case R.id.layout_version:
+                version.setBackgroundResource(R.color.gray);
+                Intent versionIntent = new Intent(MainActivity.this, VersionControlActivity.class);
+                startActivity(versionIntent);
+                break;
+            case R.id.layout_for_us:
+                for_us.setBackgroundResource(R.color.gray);
+                Intent forUsIntent = new Intent(MainActivity.this, ForUsActivity.class);
+                startActivity(forUsIntent);
+                break;
+            case R.id.layout_setting:
+                setting.setBackgroundResource(R.color.gray);
+                Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(settingIntent);
+                break;
             default:
                 break;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==0){
+            if (resultCode == RESULT_OK){
+                assert data != null;
+                userName.setText(data.getStringExtra("name"));
+            }
+        }
+    }
+
+    private void changeName(String name) {
     }
 
     private void changeUserName() {
     }
 
     private void changeId() {
+
     }
 
 

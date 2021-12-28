@@ -106,39 +106,12 @@
             />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:id="@+id/layout_major"
-        android:onClick="onClick"
-        android:clickable="true"
-        tools:ignore="OnClick"
-        >
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="25dp"
-            android:src="@drawable/major"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:text="学院与专业查询"
-            android:textSize="18dp"
-            android:gravity="center_vertical"
-            android:layout_marginStart="100dp"
-            android:textColor="@color/black"
-            />
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:id="@+id/layout_course_table"
+        android:id="@+id/layout_version"
         android:onClick="onClick"
         android:clickable="true"
         tools:ignore="OnClick"
@@ -154,7 +127,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
-            android:text="查阅周课表"
+            android:text="检测版本更新"
             android:textSize="18dp"
             android:gravity="center_vertical"
             android:layout_marginStart="100dp"
