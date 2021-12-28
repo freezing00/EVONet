@@ -53,9 +53,9 @@ public class CreateLessonActivity extends BaseActivities implements ActivityInte
                     @Override
                     public void done(String s, BmobException e) {
                         if(e==null){
-                            Toast.makeText(CreateLessonActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateLessonActivity.this, "创建课程成功", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(CreateLessonActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateLessonActivity.this, "创建课程失败", Toast.LENGTH_SHORT).show();
                         }
                     }
             });
