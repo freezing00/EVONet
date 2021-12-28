@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 
 import com.example.evonet.R;
 
-public class SplashActivity extends BaseActivities implements ActivityInterface{
+public class SplashActivity extends BaseActivity implements ActivityInterface{
     private static int SPLASH_TIME_OUT = 3000;
 
     @Override

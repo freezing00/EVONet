@@ -1,34 +1,15 @@
 package com.example.evonet.fragment;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.hardware.fingerprint.FingerprintManager;
-import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.Settings;
 
-import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,7 +20,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.example.evonet.R;
-import com.example.evonet.activities.RegisterActivity;
 import com.example.evonet.activities.SplashActivity;
 import com.example.evonet.activities.StartActivity;
 
@@ -69,7 +49,7 @@ public class fragment_home_student extends Fragment {
 //        setHasOptionsMenu(true);
 
         initToolbar(toolbar, "==", false);
-        View view = inflater.inflate(R.layout.studenthomefragment,container,false);
+        View view = inflater.inflate(R.layout.student_home_fragment,container,false);
         iniViews(view);
         toolbar = view.findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.toolbar_popmenu);

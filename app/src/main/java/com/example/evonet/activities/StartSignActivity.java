@@ -1,7 +1,6 @@
 package com.example.evonet.activities;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +26,7 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
-public class Start_sign_Activity extends BaseActivities implements ActivityInterface {
+public class StartSignActivity extends BaseActivity implements ActivityInterface {
     private Button start;
     private Button end;
     private ImageView back;
@@ -57,7 +56,7 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
                 switch (type){
                     case R.id.sign_number:
                         sign.setSignType("数字签到");
-                        Intent intent = new Intent(Start_sign_Activity.this, ChangeInfoActivity.class);
+                        Intent intent = new Intent(StartSignActivity.this, ChangeInfoActivity.class);
                         intent.putExtra("function","signId");
                         startActivityForResult(intent,0);
                         break;
@@ -75,10 +74,10 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
                     @Override
                     public void done(BmobException e) {
                         if (e==null){
-                            Toast.makeText(Start_sign_Activity.this, "结束签到成功", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(StartSignActivity.this, "结束签到成功", Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(Start_sign_Activity.this, "结束签到失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(StartSignActivity.this, "结束签到失败", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -107,10 +106,10 @@ public class Start_sign_Activity extends BaseActivities implements ActivityInter
                         @Override
                         public void done(String s, BmobException e) {
                             if (e==null){
-                                Toast.makeText(Start_sign_Activity.this, "发布签到成功", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(StartSignActivity.this, "发布签到成功", Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Toast.makeText(Start_sign_Activity.this, "发布签到失败", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(StartSignActivity.this, "发布签到失败", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

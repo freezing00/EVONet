@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 
 import com.example.evonet.R;
 
-public class ForUsActivity extends BaseActivities implements ActivityInterface{
+public class ForUsActivity extends BaseActivity implements ActivityInterface{
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

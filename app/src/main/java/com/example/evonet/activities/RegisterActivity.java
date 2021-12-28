@@ -1,6 +1,5 @@
 package com.example.evonet.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,7 +25,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import cn.smssdk.SMSSDK;
 
-public class RegisterActivity extends BaseActivities implements ActivityInterface{
+public class RegisterActivity extends BaseActivity implements ActivityInterface{
     private boolean identifyFlag = false;
     private boolean identifySuccessful =false;
     private Toolbar toolbar;
@@ -114,14 +113,14 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
                     return;
                 }
 
-                if (et_registerIdentifyNumber.getText().length() == 4) {
-                    SMSSDK.submitVerificationCode("86", user_phoneNumber, user_identify);
-                    Toast.makeText(this, "验证中。。。", Toast.LENGTH_SHORT).show();
-                    identifyFlag = false;
-                } else {
-                    Toast.makeText(this, "请输入完整的验证码", Toast.LENGTH_SHORT).show();
-                    et_registerIdentifyNumber.requestFocus();
-                }
+//                if (et_registerIdentifyNumber.getText().length() == 4) {
+//                   // SMSSDK.submitVerificationCode("86", user_phoneNumber, user_identify);
+//                    Toast.makeText(this, "验证中。。。", Toast.LENGTH_SHORT).show();
+//                    identifyFlag = false;
+//                } else {
+//                    Toast.makeText(this, "请输入完整的验证码", Toast.LENGTH_SHORT).show();
+//                    et_registerIdentifyNumber.requestFocus();
+//                }
                 //TODO 验证码获取失败，审核问题
 //                if (!identifySuccessful){
 //                    Toast.makeText(RegisterActivity.this, "验证失败", Toast.LENGTH_SHORT).show();
@@ -138,13 +137,13 @@ public class RegisterActivity extends BaseActivities implements ActivityInterfac
                     public void done(User user, BmobException e) {
                         if(e==null){
                             Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            finish();
                         }else{
                             //loge(e);
                             Toast.makeText(RegisterActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-                finish();
                 break;
             case R.id.bt_regist_cancel:
                 finish();

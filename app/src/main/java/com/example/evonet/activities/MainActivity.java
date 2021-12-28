@@ -36,7 +36,7 @@ import android.widget.TextView;
 
 import cn.bmob.v3.BmobUser;
 
-public class MainActivity extends BaseActivities {
+public class MainActivity extends BaseActivity {
     //百度地图API调用
     private final int GPS_REQUEST_CODE = 10;
     private final int REQUEST_CODE_FINE_GPS = 2;

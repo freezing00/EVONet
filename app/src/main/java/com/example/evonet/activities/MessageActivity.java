@@ -5,11 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.example.evonet.R;
-import com.example.evonet.javaBeans.User;
 
-import cn.bmob.v3.BmobUser;
-
-public class MessageActivity extends BaseActivities implements ActivityInterface{
+public class MessageActivity extends BaseActivity implements ActivityInterface{
 
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {

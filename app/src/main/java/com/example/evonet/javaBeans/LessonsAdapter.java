@@ -13,13 +13,13 @@ import java.util.List;
 import java.util.Map;
 
 public class LessonsAdapter extends BaseAdapter {
-    private List<LessonBean> data;
+    private List<Lesson> data;
     private Context context;
     private LayoutInflater inflater;
     private List<Map<String,Object>> mNumber;//存储textView_lesson_number的值
     //通过构造方法关联数据源与适配器
 
-    public LessonsAdapter(List<LessonBean> data, Context context) {
+    public LessonsAdapter(List<Lesson> data, Context context) {
         this.data = data;
         this.context=context;
         this.inflater=LayoutInflater.from(context);

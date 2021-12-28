@@ -6,13 +6,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.provider.SyncStateContract;
+import android.text.InputType;
 import android.view.View;
 import android.view.Window;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,22 +25,22 @@ import com.example.evonet.utiles.FileManager;
 
 import org.jetbrains.annotations.NotNull;
 
-import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
-import cn.bmob.v3.listener.SaveListener;
 
 
-public class StartActivity extends BaseActivities implements ActivityInterface{
+public class StartActivity extends BaseActivity implements ActivityInterface{
 
 
     //定义组件对象
     private EditText et_startUser,et_startPassword;
     private TextView tv_register;
     private Button bt_login;
+    private Boolean pwdSwitch = false;
     private CheckBox ck_remember;
     private Boolean isClickLogin = false;
+    private ImageView imageView;
 
 
     @Override
@@ -49,14 +49,12 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
         bindView();
-
         if (!FileManager.getAccount(this).equals("")){
             ck_remember.setChecked(true);
             ck_remember.setSelected(true);
             et_startUser.setText(FileManager.getAccount(this));
             et_startPassword.setText(FileManager.getPassword(this));
         }
-
 
         if (BmobUser.isLogin()){
             Intent intent = new Intent(StartActivity.this,MainActivity.class);
@@ -89,7 +87,18 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
                     ck_remember.setSelected(true);
                     ck_remember.setChecked(true);
                 }
+            case R.id.iv_pwd_switch:
+                pwdSwitch=!pwdSwitch;
+                if (pwdSwitch){
+                    imageView.setImageResource(R.drawable.ic_baseline_visibility_24);
+                    et_startPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                }
+                else {
+                    imageView.setImageResource(R.drawable.ic_baseline_visibility_off_24);
+                    et_startPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD|InputType.TYPE_CLASS_TEXT);
+                }
                 break;
+
         }
     }
 
@@ -149,7 +158,9 @@ public class StartActivity extends BaseActivities implements ActivityInterface{
         et_startPassword = findViewById(R.id.et_pwd);
         bt_login = findViewById(R.id.log_in_button);
         ck_remember = findViewById(R.id.remember);
+        imageView = findViewById(R.id.iv_pwd_switch);
 
+        imageView.setOnClickListener(this);
         tv_register.setOnClickListener(StartActivity.this);
         bt_login.setOnClickListener(StartActivity.this);
         ck_remember.setOnClickListener(this);

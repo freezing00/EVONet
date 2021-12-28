@@ -1,10 +1,8 @@
 package com.example.evonet.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -12,7 +10,6 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentHostCallback;
 
 import com.example.evonet.R;
@@ -22,7 +19,7 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 
-public class AccountActivity extends BaseActivities implements ActivityInterface{
+public class AccountActivity extends BaseActivity implements ActivityInterface{
     private Toolbar toolbar;
 
     private RelativeLayout emailLayout,phoneNumberLayout,passwordLayout;

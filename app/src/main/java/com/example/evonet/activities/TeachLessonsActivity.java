@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.evonet.R;
-import com.example.evonet.javaBeans.LessonBean;
+import com.example.evonet.javaBeans.Lesson;
 import com.example.evonet.javaBeans.Lesson_Data_Holder;
 
 import com.example.evonet.javaBeans.LessonsAdapter;
@@ -21,7 +21,7 @@ import java.util.List;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
-public class teach_lessons extends AppCompatActivity {
+public class TeachLessonsActivity extends AppCompatActivity {
     //    Bundle bundle = new Bundle();
     //    private RelativeLayout layout1, layout2, layout3;//对应3个课程布局的点击事件
     private View view;
@@ -35,7 +35,7 @@ public class teach_lessons extends AppCompatActivity {
     private String lesson_numbers;
     private String lesson_name;
     private String lesson_sum_person;
-    private final List<LessonBean> data = new ArrayList<>();
+    private final List<Lesson> data = new ArrayList<>();
 
 //    public teach_lessons() {
 //    }
@@ -48,37 +48,37 @@ public class teach_lessons extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LessonBean lessonBean = new LessonBean();
+        Lesson lesson = new Lesson();
         setContentView(R.layout.activity_teach_lessons);
-        lessonBean.setName("安卓应用开发"); ;//得到需要的课程号
-        lessonBean.setNumber("JHMXUS");
-        lessonBean.setSum_person("111人");
-        data.add(lessonBean);
-        lessonBean.save(new SaveListener<String>() {
+        lesson.setName("安卓应用开发"); ;//得到需要的课程号
+        lesson.setNumber("JHMXUS");
+        lesson.setSum_person("111人");
+        data.add(lesson);
+        lesson.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
             }
         });
 
 
-        lessonBean =new LessonBean();
-        lessonBean.setName("形势与政策"); ;//得到需要的课程号
-        lessonBean.setNumber("Q28GUH");
-        lessonBean.setSum_person("245人");
-        data.add(lessonBean);
-        lessonBean.save(new SaveListener<String>() {
+        lesson =new Lesson();
+        lesson.setName("形势与政策"); ;//得到需要的课程号
+        lesson.setNumber("Q28GUH");
+        lesson.setSum_person("245人");
+        data.add(lesson);
+        lesson.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
             }
         });
 
 
-        lessonBean =new LessonBean();
-        lessonBean.setNumber("VKWRKC") ;//得到需要的课程号
-        lessonBean.setName("操作系统");
-        lessonBean.setSum_person("151人");
-        data.add(lessonBean);
-        lessonBean.save(new SaveListener<String>() {
+        lesson =new Lesson();
+        lesson.setNumber("VKWRKC") ;//得到需要的课程号
+        lesson.setName("操作系统");
+        lesson.setSum_person("151人");
+        data.add(lesson);
+        lesson.save(new SaveListener<String>() {
             @Override
             public void done(String s, BmobException e) {
             }
@@ -86,7 +86,7 @@ public class teach_lessons extends AppCompatActivity {
 
 
         ListView listView=findViewById(R.id.teachlesson);
-        adapter=new LessonsAdapter(data,teach_lessons.this);
+        adapter=new LessonsAdapter(data, TeachLessonsActivity.this);
         listView.setAdapter(adapter);
         //获取到当前点击的adapter数据
         //创建ListView上每一个Item的点击事件，均跳转到签到页
@@ -108,7 +108,7 @@ public class teach_lessons extends AppCompatActivity {
                 lesson_name=textView_lesson_name.getText().toString();
                 lesson_sum_person=textView_lesson_sum_person.getText().toString();
 
-                Intent intent = new Intent(teach_lessons.this, Start_sign_Activity.class);//跳转到发布签到页面
+                Intent intent = new Intent(TeachLessonsActivity.this, StartSignActivity.class);//跳转到发布签到页面
                 Lesson_Data_Holder.getInstance().setName(lesson_name);
                 Lesson_Data_Holder.getInstance().setNumber(lesson_numbers);
                 Lesson_Data_Holder.getInstance().setSum(lesson_sum_person);

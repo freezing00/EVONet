@@ -30,10 +30,10 @@
 
         <activity android:name=".activities.RecordActivity" />
         <activity android:name=".activities.AccountActivity"/>
-        <activity android:name=".activities.teach_lessons"/>
-        <activity android:name=".activities.Start_sign_Activity"/>
+        <activity android:name=".activities.TeachLessonsActivity"/>
+        <activity android:name=".activities.StartSignActivity"/>
         <activity android:name=".activities.SignActivity" />
-        <activity android:name=".activities.AddLesson" />
+        <activity android:name=".activities.AddLessonActivity" />
 
         <activity android:name=".activities.SplashActivity">
             //设置入口activity

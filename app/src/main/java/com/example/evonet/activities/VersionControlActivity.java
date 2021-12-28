@@ -2,15 +2,9 @@ package com.example.evonet.activities;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -20,17 +14,11 @@ import androidx.cardview.widget.CardView;
 import com.example.evonet.R;
 import com.example.evonet.javaBeans.Version;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.QueryListener;
 
-public class VersionControlActivity extends BaseActivities implements View.OnClickListener {
+public class VersionControlActivity extends BaseActivity implements View.OnClickListener {
     private int mProgress;
     private String url, code1, text;
     private int code;

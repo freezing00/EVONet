@@ -1,32 +1,25 @@
 package com.example.evonet.javaBeans;
 
 import android.content.Context;
-import android.text.Layout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.fragment.app.FragmentActivity;
-
 import com.example.evonet.R;
-import com.example.evonet.fragment.fragment_signin;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class MyAdapter extends BaseAdapter {
-    private List<LessonBean>data;
+    private List<Lesson>data;
     private Context context;
     private LayoutInflater inflater;
     private List<Map<String,Object>> mNumber;//存储textView_lesson_number的值
     //通过构造方法关联数据源与适配器
 
-    public MyAdapter(List<LessonBean> data, Context context) {
+    public MyAdapter(List<Lesson> data, Context context) {
         this.data = data;
         this.context=context;
         this.inflater=LayoutInflater.from(context);

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.example.evonet.R;
 
-public class AddLesson extends AppCompatActivity {
+public class AddLessonActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

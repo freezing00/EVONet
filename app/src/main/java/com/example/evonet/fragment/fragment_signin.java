@@ -1,26 +1,21 @@
 package com.example.evonet.fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.evonet.R;
-import com.example.evonet.activities.IFragmentInterface;
-import com.example.evonet.activities.MainActivity;
 import com.example.evonet.activities.SignActivity;
-import com.example.evonet.javaBeans.LessonBean;
+import com.example.evonet.javaBeans.Lesson;
 import com.example.evonet.javaBeans.Lesson_Number_Holder;
 import com.example.evonet.javaBeans.MyAdapter;
 
@@ -33,7 +28,7 @@ import java.util.Random;
 public class fragment_signin extends Fragment {
     Bundle bundle = new Bundle();
 //    private RelativeLayout layout1, layout2, layout3;//对应3个课程布局的点击事件
-    private List<LessonBean> data=new ArrayList<>();
+    private List<Lesson> data=new ArrayList<>();
     private View view;
     private MyAdapter adapter;
 //    private View present_Item_View;//当前选中的Item对象的View
@@ -54,21 +49,21 @@ public class fragment_signin extends Fragment {
     @org.jetbrains.annotations.Nullable
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.siginfragment, null);
+        view = inflater.inflate(R.layout.sigin_fragment, null);
         //装配数据源
-        LessonBean bean_as=new LessonBean();
+        Lesson bean_as=new Lesson();
         bean_as.setName("安卓应用开发");
         bean_as.setNumber("JHMXUS");
         bean_as.setSum_person("111人");
         data.add(bean_as);
 
-        LessonBean bean_xs=new LessonBean();
+        Lesson bean_xs=new Lesson();
         bean_xs.setName("形势与政策");
         bean_xs.setNumber("Q28GUH");
         bean_xs.setSum_person("245人");
         data.add(bean_xs);
 
-        LessonBean bean_os=new LessonBean();
+        Lesson bean_os=new Lesson();
         bean_os.setName("操作系统");
         bean_os.setNumber("VKWRKC");
         bean_os.setSum_person("151人");

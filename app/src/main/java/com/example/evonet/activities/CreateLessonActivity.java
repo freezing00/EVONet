@@ -4,19 +4,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.example.evonet.R;
-import com.example.evonet.javaBeans.LessonBean;
-import com.example.evonet.javaBeans.LessonsAdapter;
+import com.example.evonet.javaBeans.Lesson;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
-public class CreateLessonActivity extends BaseActivities implements ActivityInterface{
+public class CreateLessonActivity extends BaseActivity implements ActivityInterface{
 
 
     private EditText et_name;
@@ -45,7 +43,7 @@ public class CreateLessonActivity extends BaseActivities implements ActivityInte
                     return;
                 }
 
-            LessonBean lesson = new LessonBean();
+            Lesson lesson = new Lesson();
             lesson.setName(name);
             lesson.setNumber(number);
             lesson.setSum_person(sum_person);
