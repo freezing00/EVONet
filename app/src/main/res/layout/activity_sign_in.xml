@@ -32,8 +32,8 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
         >
         <ImageView
             android:layout_width="28dp"
@@ -43,42 +43,37 @@
 
             />
     </RelativeLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/show_lesson_number"
-        android:textSize="15dp"
 
-        />
     <TextView
+        android:id="@+id/show_lesson_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/whether_sign"
-        android:text="当前教师未发布考勤"
-        android:textSize="15dp"
         android:layout_marginStart="50dp"
+        android:textSize="30dp"
+        android:textColor="@color/design_default_color_primary"
         />
+
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/gps"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
 
         <ImageView
             android:id="@+id/gps_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/gps" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/show_gps"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
             android:layout_toRightOf="@+id/gps_img"
-            android:layout_alignBottom="@+id/gps_img"
             android:text="等待定位........"
 
             />
     </RelativeLayout>
+
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -86,20 +81,20 @@
         android:src="@drawable/huojian" />
 
     <Button
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:text="签到打卡"
         android:id="@+id/button_qiandao"
         android:background="@drawable/btn_selector"
         />
     <Button
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/button_kaoqin"
         android:layout_gravity="center"
         android:text="考勤记录"

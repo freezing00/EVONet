@@ -216,7 +216,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
-            android:background="@color/design_default_color_primary_variant"
+            android:background="@drawable/btn_selector"
             android:text="发送验证码"
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="215dp" />
