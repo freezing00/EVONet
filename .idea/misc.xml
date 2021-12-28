@@ -3,7 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_add_lesson.xml" value="0.20572916666666666" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_change_info.xml" value="0.20572916666666666" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_create_lesson.xml" value="0.20572916666666666" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_main_student.xml" value="0.20572916666666666" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_main_teacher.xml" value="0.13958333333333334" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_record.xml" value="0.20572916666666666" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_register.xml" value="0.20572916666666666" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_sign_in.xml" value="0.13958333333333334" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_splash.xml" value="0.13958333333333334" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_start.xml" value="0.13958333333333334" />
         <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_start_sign.xml" value="0.13768115942028986" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/activity_teach_lessons.xml" value="0.13958333333333334" />
+        <entry key="..\:/Desktop/EVONet/app/src/main/res/layout/callfragment.xml" value="0.13958333333333334" />
       </map>
     </option>
   </component>

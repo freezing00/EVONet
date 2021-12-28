@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.evonet.R;
+import com.example.evonet.activities.CreateLessonActivity;
 import com.example.evonet.activities.SignActivity;
 import com.example.evonet.activities.SplashActivity;
 import com.example.evonet.activities.teach_lessons;
@@ -44,6 +45,10 @@ public class fragment_call extends Fragment {
             startActivity(intent_sign);
         });
         //创建课程
+        teacher_crate_lesson.setOnClickListener(v -> {
+            Intent intent_create = new Intent(getActivity(), CreateLessonActivity.class);
+            startActivity(intent_create);
+        });
         return view;
 
     }
