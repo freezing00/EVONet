@@ -21,38 +21,20 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="?actionBarSize"
-                    android:layout_height="?actionBarSize"
-                    android:src="@drawable/fanhui"
-                    android:scaleType="fitXY"
-                    android:paddingEnd="28dp"
-                    android:paddingTop="14sp"
-                    android:paddingBottom="14sp"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
                 <TextView
-                    android:id="@+id/toolbar_function"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="20sp"
+                    android:layout_height="?actionBarSize"
                     android:gravity="center_vertical"
-                    android:textColor="@color/white"/>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:text="信息修改"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
 
                 <Button
                     android:id="@+id/finish"
                     android:layout_width="wrap_content"
                     android:layout_height="?actionBarSize"
                     android:gravity="center"
+                    android:layout_marginStart="160dp"
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     android:text="完成"/>
@@ -77,5 +59,19 @@
             android:textSize="17sp"/>
 
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:src="@drawable/changeInfo"
+            />
+
+    </RelativeLayout>
 
 </LinearLayout>

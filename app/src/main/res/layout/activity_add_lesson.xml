@@ -8,21 +8,33 @@
     android:id="@+id/qiandao"
     android:orientation="vertical"
     >
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fanhui"
-        android:src="@drawable/fanhui"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="课程签到"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:id="@+id/lesson_xml_head"
-        />
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/Widget.AppCompat.Toolbar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fanhui"
+                android:src="@drawable/fanhui"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:gravity="center_vertical"
+                android:text="课程签到"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ImageView
         android:layout_width="wrap_content"

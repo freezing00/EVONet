@@ -113,7 +113,6 @@
             android:text="登录"
             android:id="@+id/log_in_button"
             android:textColor="@color/white"
-            android:background="@color/design_default_color_primary_variant"
             android:layout_marginTop="32dp"
             android:layout_alignParentTop="true"
             android:layout_width="280dp"
