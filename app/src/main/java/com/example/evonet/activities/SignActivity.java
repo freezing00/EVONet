@@ -71,7 +71,7 @@ public class SignActivity extends AppCompatActivity {
         button_qiandao = (Button) findViewById(R.id.button_qiandao);
         fanhui = (ImageView) findViewById(R.id.back);
         gps = (TextView) findViewById(R.id.show_gps);
-
+        button_qiandao.setText("签到打卡");
         show_lesson_number=(TextView)findViewById(R.id.show_lesson_number);
         show_txt="课程号："+Lesson_Number_Holder.getInstance().getData();
         show_lesson_number.setText(show_txt);//显示课程号
@@ -174,12 +174,14 @@ public class SignActivity extends AppCompatActivity {
                                     if (sign.getSignId().equals(record.getSignId())&&sign.isSignal()){
                                         record.setStatus(true);
                                         Toast.makeText(SignActivity.this,"签到成功",Toast.LENGTH_SHORT).show();
+                                        button_qiandao.setText("签到成功");
                                         finishFlag = true;
                                         break;
                                     }
                                 }
                                 if(!record.getStatus()){
                                     Toast.makeText(SignActivity.this,"签到失败",Toast.LENGTH_SHORT).show();
+                                    button_qiandao.setText("签到失败");
                                     finishFlag = false;
                                 }
                                 locationUpdaes(location);//将最新定位信息传递给该方法
@@ -223,11 +225,9 @@ public class SignActivity extends AppCompatActivity {
             stringBuilder.append("\n纬度：");
             stringBuilder.append(location.getLatitude());
             gps.setText(stringBuilder.toString());
-            button_qiandao.setText("签到成功");
 
         }else {
             gps.setText("您没有获取到定位信息");
-            button_qiandao.setText("签到失败");
         }
 
     }
