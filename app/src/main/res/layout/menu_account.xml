@@ -179,15 +179,15 @@
         android:layout_weight="1">
 
         <Button
-            android:text="退出登录"
             android:id="@+id/quit_button"
-            android:textColor="@color/white"
-            android:background="@color/design_default_color_primary_variant"
-            android:layout_marginTop="160dp"
-            android:layout_alignParentTop="true"
             android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content"/>
+            android:layout_marginTop="160dp"
+            android:background="@drawable/btn_selector"
+            android:text="退出登录"
+            android:textColor="@color/white" />
     </RelativeLayout>
 
 </LinearLayout>

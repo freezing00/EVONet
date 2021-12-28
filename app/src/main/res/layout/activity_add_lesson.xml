@@ -38,6 +38,7 @@
         android:layout_gravity="center"
         android:text="签到打卡"
         android:id="@+id/button_qiandao"
+        android:background="@drawable/btn_selector"
         />
     <Button
         android:layout_width="140dp"
@@ -47,6 +48,7 @@
         android:id="@+id/button_kaoqin"
         android:layout_gravity="center"
         android:text="考勤记录"
+        android:background="@drawable/btn_selector"
         />
 
 
