@@ -35,18 +35,16 @@
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_marginBottom="4dp"
             android:layout_alignParentBottom="true"
-            android:src="@drawable/ic_baseline_person_24"/>
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/ic_baseline_person_24" />
 
         <EditText
             android:id="@+id/user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
-            android:layout_marginBottom="1dp"
             android:hint="学号"
             android:inputType="text"
             android:maxLines="1" />
@@ -62,16 +60,17 @@
             android:layout_marginBottom="4dp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/ic_baseline_email_24"/>
+
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:inputType="text"
-            android:hint="邮箱"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
-            android:maxLines="1"/>
+            android:hint="邮箱"
+            android:inputType="text"
+            android:maxLines="1" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -84,16 +83,17 @@
             android:layout_marginBottom="4dp"
             android:layout_alignParentBottom="true"
             android:src="@drawable/ic_baseline_smartphone_24"/>
+
         <EditText
             android:id="@+id/phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:inputType="text"
-            android:hint="手机号"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
-            android:maxLines="1"/>
+            android:hint="手机号"
+            android:inputType="text"
+            android:maxLines="1" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -241,11 +241,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
-            android:background="@color/design_default_color_primary_variant"
+            android:background="@drawable/btn_selector"
             android:text="保存"
             android:textColor="@color/white"
-            tools:layout_editor_absoluteX="81dp"
-            />
+            tools:layout_editor_absoluteX="81dp" />
 
         <Button
             android:id="@+id/bt_regist_cancel"
@@ -253,7 +252,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
-            android:background="@color/design_default_color_primary_variant"
+            android:background="@drawable/btn_selector"
             android:text="取消"
             android:textColor="@color/white"
             tools:layout_editor_absoluteX="215dp"

@@ -131,6 +131,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
+            android:background="@drawable/btn_selector"
             android:text="开始"
             android:textColor="@color/white"
             android:textSize="20dp" />
@@ -140,12 +141,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="130dp"
+            android:layout_marginLeft="130dp"
             android:layout_toRightOf="@+id/start"
             android:text="结束"
             android:textColor="@color/white"
-            android:textSize="20dp"
-
-            />
+            android:background="@drawable/btn_selector"
+            android:textSize="20dp" />
     </RelativeLayout>
 
 
