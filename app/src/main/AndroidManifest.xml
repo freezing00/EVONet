@@ -49,7 +49,7 @@
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.ChangeInfoActivity" />
-
+        <activity android:name=".activities.VersionControlActivity"/>
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
