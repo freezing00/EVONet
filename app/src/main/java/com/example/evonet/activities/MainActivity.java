@@ -9,8 +9,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import android.view.Menu;
-
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,7 +27,6 @@ import com.example.evonet.fragment.fragment_home;
 import com.example.evonet.fragment.fragment_home_student;
 import com.example.evonet.fragment.fragment_signin;
 import com.example.evonet.javaBeans.User;
-import com.example.evonet.javaBeans.Version;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.widget.RelativeLayout;
@@ -238,6 +235,8 @@ public class MainActivity extends BaseActivities {
                 break;
             case R.id.layout_message:
                 message.setBackgroundResource(R.color.gray);
+                Intent messageIntent = new Intent(MainActivity.this, MessageActivity.class);
+                startActivity(messageIntent);
                 break;
             case R.id.layout_version:
                 version.setBackgroundResource(R.color.gray);
@@ -246,9 +245,13 @@ public class MainActivity extends BaseActivities {
                 break;
             case R.id.layout_for_us:
                 for_us.setBackgroundResource(R.color.gray);
+                Intent forUsIntent = new Intent(MainActivity.this, ForUsActivity.class);
+                startActivity(forUsIntent);
                 break;
             case R.id.layout_setting:
                 setting.setBackgroundResource(R.color.gray);
+                Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(settingIntent);
                 break;
             default:
                 break;

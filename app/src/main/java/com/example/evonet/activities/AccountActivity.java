@@ -29,7 +29,6 @@ public class AccountActivity extends BaseActivities implements ActivityInterface
     FragmentHostCallback mHost;
     private Button quitButton;
     private TextView email,phoneNumber,password,ID;
-
     private User user;//用于更新云数据库
 
     @Override
