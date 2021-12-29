@@ -35,6 +35,15 @@ public class AccountActivity extends BaseActivity implements ActivityInterface{
         setContentView(R.layout.menu_account);
         user = BmobUser.getCurrentUser(User.class);
         bindView();
+
+        passwordLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                Intent intent = new Intent(AccountActivity.this,ResetPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -54,7 +63,6 @@ public class AccountActivity extends BaseActivity implements ActivityInterface{
 
         emailLayout.setOnClickListener(AccountActivity.this);
         phoneNumberLayout.setOnClickListener(AccountActivity.this);
-        passwordLayout.setOnClickListener(AccountActivity.this);
         quitButton.setOnClickListener(AccountActivity.this);
     }
 
@@ -72,9 +80,6 @@ public class AccountActivity extends BaseActivity implements ActivityInterface{
                 intent.putExtra("function","phoneNumber");
                 startActivityForResult(intent,1);
                 break;
-            case R.id.account_password:
-                intent.putExtra("function","password");
-                startActivityForResult(intent,2);
             case R.id.quit_button:
                 BmobUser.logOut();
                 startActivity(new Intent(this, StartActivity.class));
@@ -93,16 +98,13 @@ public class AccountActivity extends BaseActivity implements ActivityInterface{
                     assert data != null;
                     changeEmail(data.getStringExtra("email"));
                 }
+                break;
             case 1:
                 if (resultCode == RESULT_OK){
                     assert data != null;
                     changePhoneNumber(data.getStringExtra("phoneNumber"));
                 }
-            case 2:
-                if (resultCode == RESULT_OK){
-                    assert data != null;
-                    changePassword(data.getStringExtra("password"));
-                }
+                break;
             default:
                 break;
         }
@@ -115,7 +117,6 @@ public class AccountActivity extends BaseActivity implements ActivityInterface{
             public void done(BmobException e) {
                 if (e == null) {
                     Toast.makeText(AccountActivity.this, "密码更新成功", Toast.LENGTH_SHORT).show();
-                    password.setText(updatePassword);
                 } else {
                     Toast.makeText(AccountActivity.this, "密码更新失败，请检查网络", Toast.LENGTH_SHORT).show();
                 }

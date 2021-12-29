@@ -54,7 +54,7 @@
         <activity android:name=".activities.MessageActivity"/>
         <activity android:name=".activities.ForUsActivity"/>
         <activity android:name=".activities.SettingActivity"/>
-
+        <activity android:name=".activities.ResetPasswordActivity"/>
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="com.example.evonet.BmobContentProvider" />

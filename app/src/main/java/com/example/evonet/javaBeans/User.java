@@ -2,6 +2,8 @@ package com.example.evonet.javaBeans;
 
 import android.graphics.Bitmap;
 
+import java.sql.SQLTransactionRollbackException;
+
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 

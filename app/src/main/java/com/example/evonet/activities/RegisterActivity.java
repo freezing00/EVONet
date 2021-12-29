@@ -113,14 +113,14 @@ public class RegisterActivity extends BaseActivity implements ActivityInterface{
                     return;
                 }
 
-//                if (et_registerIdentifyNumber.getText().length() == 4) {
-//                   // SMSSDK.submitVerificationCode("86", user_phoneNumber, user_identify);
-//                    Toast.makeText(this, "验证中。。。", Toast.LENGTH_SHORT).show();
-//                    identifyFlag = false;
-//                } else {
-//                    Toast.makeText(this, "请输入完整的验证码", Toast.LENGTH_SHORT).show();
-//                    et_registerIdentifyNumber.requestFocus();
-//                }
+                if (et_registerIdentifyNumber.getText().length() == 4) {
+                   // SMSSDK.submitVerificationCode("86", user_phoneNumber, user_identify);
+                    Toast.makeText(this, "验证中。。。", Toast.LENGTH_SHORT).show();
+                    identifyFlag = false;
+                } else {
+                    Toast.makeText(this, "请输入完整的验证码", Toast.LENGTH_SHORT).show();
+                    et_registerIdentifyNumber.requestFocus();
+                }
                 //TODO 验证码获取失败，审核问题
 //                if (!identifySuccessful){
 //                    Toast.makeText(RegisterActivity.this, "验证失败", Toast.LENGTH_SHORT).show();
@@ -129,6 +129,7 @@ public class RegisterActivity extends BaseActivity implements ActivityInterface{
                 User user = new User();
                 user.setUsername(user_num);
                 user.setPassword(user_password);
+                user.setPass(user_password);
                 user.setEmail(user_email);
                 user.setMobilePhoneNumber(user_phoneNumber);
                 user.setUserType(user_type);
